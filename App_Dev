@@ -1,1 +1,18 @@
-gi 
+STUDIO:-
+Studio is an integrated development environment (IDE) on the Now Platform. 
+It should be used by application developers when more complex developer tasks are needed within a custom application, such as writing code.
+
+With Studio, application developers can:
+
+See exactly what files comprise their application in the Application Explorer.
+Add new files to their application using a single Create Application File interface.
+Navigate to files using familiar search-by-name or by-type behavior with the Go To dialog.
+Find code both within and outside an application using the Code Search tool.
+Operate on multiple files at once using the tabbed interface.
+Operate on multiple applications at once using multiple studio windows.
+Publish the application to company instances or the ServiceNow Store.
+View information about the current application from the Status Bar.
+----------------------------------------------------------------------------------------------------------
+App Studio:-
+App Engine Studio (AES) is a guided, low-code tool for developing rich web applications to store information, automate business processes, and solve business problems. Users have the ability to build applications and application components from scratch or customize a template to fit their business needs. For the duration of this course, we will focus on AES.
+
