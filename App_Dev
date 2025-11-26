@@ -15,4 +15,7 @@ View information about the current application from the Status Bar.
 ----------------------------------------------------------------------------------------------------------
 App Studio:-
 App Engine Studio (AES) is a guided, low-code tool for developing rich web applications to store information, automate business processes, and solve business problems. Users have the ability to build applications and application components from scratch or customize a template to fit their business needs. For the duration of this course, we will focus on AES.
+-----------------------------------------------------------------------------------------------------------
+App Development Lifecycle in AES
 
+Application development should begin in a development instance, and when complete, a System Administrator will publish the application to a test instance for thorough testing. Any defects found are fixed in the development instance and pushed to the test instance for additional testing. When the application is ready, it can then be published to a production instance. Development should never be done directly on the production instance.
