@@ -6,3 +6,50 @@ Work with knowledge management
 Understand service catalog and data management
 Learn migration flows
 General administration skills to manage the platform effectively
+
+---------------------------------------------------------------------------------------
+
+--> How ServiceNow Works (Core Concept)
+
+ServiceNow runs in the cloud
+
+  Users access apps and data on any device (computer, tablet, phone).
+  All data is stored in a database.
+
+Data is organized as:
+
+  Tables → contain
+
+    Records (e.g., User record, Task record)
+    Fields (data about that record)
+
+Everything in ServiceNow = a record in a table
+
+  Every element (users, incidents, tasks, etc.) is a record.
+  Tables support the applications running on the platform.
+
+
+--> Application Platform as a Service (aPaaS)
+
+The “green box” mentioned refers to the ServiceNow platform, an application platform as a service.
+
+Some tables are:
+
+  Shared by multiple applications
+
+  App-specific, used only by certain modules
+    Example:
+      ITSM uses Incident table
+      HR uses HR Case table
+
+
+--> How Users Interact
+
+Users send requests to the server, and the server performs actions such as:
+
+    Creating records
+    Updating records
+    Viewing analytics
+    Retrieving data
+
+This is the foundation of how ServiceNow applications operate.
