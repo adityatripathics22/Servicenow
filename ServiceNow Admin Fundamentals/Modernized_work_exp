@@ -53,3 +53,59 @@ Users send requests to the server, and the server performs actions such as:
     Retrieving data
 
 This is the foundation of how ServiceNow applications operate.
+
+-----------------------------------------------------------------------------------------------------------
+
+Topic: Roles, Access, and Impersonation 
+
+--> Understanding Role-Based Access---
+
+ServiceNow uses roles to control what users can see and do.
+
+Examples from the table mentioned in the lecture:
+
+  catalog role
+    Gives access to the Service Catalog application and its related modules.
+
+  user_criteria_admin role
+    Access to only two modules:
+      Service Catalog User Criteria
+      Knowledge User Criteria
+
+  catalog_admin role
+    Access to all applications and modules that belong to:
+      catalog role
+      user_criteria_admin role
+    Also includes additional catalog admin permissions.
+
+--> Users Without Assigned Roles (Self-Service Users)
+
+Even if a user has no roles, they can still:
+
+  Log in to ServiceNow
+  View dashboards
+  Access the service catalog
+  Read knowledge articles
+  Take surveys
+
+These users can access everything that doesn’t require a role, and are known as self-service users.
+
+--> Impersonation in ServiceNow
+
+As a System Administrator, you can:
+  Impersonate other users to test visibility, permissions, and behavior.
+  This helps ensure apps and modules work correctly for different roles.
+
+Important Notes:
+  Both Admins and users with the impersonator role can impersonate others.
+  You cannot access features that you yourself don’t have permissions for.
+    Example: You can’t access Security Incident features unless your own account has those roles.
+  You cannot change passwords while impersonating.
+
+--> What This Lab Covers
+
+In this lab, you will explore:
+
+  Granting access to users via roles
+  Navigating the platform using different roles
+  Impersonating users to understand their permissions and experience
