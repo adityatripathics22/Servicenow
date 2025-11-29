@@ -49,3 +49,40 @@ ServiceNow allows you to configure or customize things like:
   System properties
   Application installation
   Plugins
+
+
+5. Branding & Navigation Settings
+
+You can personalize the instance through:
+  System Properties → My Company
+    Set banner image
+    Set instance logo
+
+  Browser tab text
+    Helps you differentiate between multiple instances during work.
+
+
+6. Licensing Requirements
+
+  Make sure your ServiceNow instance has the required valid licenses.
+  Applications must be licensed before use.
+  Apps can be installed or removed from the ServiceNow Store.
+
+
+7. Plugins
+
+  Plugins enhance ServiceNow’s features.
+  Plugins are stored as records in tables.
+  You can search for plugins by name or ID.
+  If a plugin is not available, you can request ServiceNow to activate it.
+
+
+8. Application Scoping
+
+Scoping controls:
+  Which files/data an app can access.
+  Prevents apps from interacting with each other unless permissions are explicitly granted.
+
+Example:
+  A room booking app cannot access HR data unless permission is provided.
+  For learning scoped application development → Application Development Fundamentals is recommended.
