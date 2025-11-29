@@ -1,0 +1,51 @@
+In this module, you will learn:
+
+How to brand and tailor your ServiceNow instance to match your company.
+The difference between configuration (recommended) and customization (should be used carefully).
+How different users (marketing, developers, admins) work with instance settings.
+
+
+2. What Is an Instance?
+
+A ServiceNow instance:
+
+  Is hosted in a ServiceNow data center (cloud) or sometimes on-site.
+  Has a unique URL.
+  Uses a multi-instance, single-tenant architecture, meaning:
+    Every customer gets a separate database.
+    Your data is isolated from other customers.
+
+  Types of Instances
+
+  Customers always receive two instances:
+    Production – live environment.
+    Non-production – used for development/testing.
+
+  Additional instances may be added for:
+    QA
+    Testing
+    Development
+
+
+3. Making Changes Using Update Sets
+
+  Changes to an instance are collected and moved using Update Sets.
+  Update Sets allow you to package changes and migrate them to production.
+  More details on update sets will come later in a separate module.
+
+Important Note
+
+Some tables or features may require extra licensing if they extend the CMDB.
+Always confirm with the ServiceNow account executive before adding such tables.
+
+
+4. Customization & Configuration Options
+
+ServiceNow allows you to configure or customize things like:
+
+  Company branding
+  Instance logo
+  Browser tab label
+  System properties
+  Application installation
+  Plugins
