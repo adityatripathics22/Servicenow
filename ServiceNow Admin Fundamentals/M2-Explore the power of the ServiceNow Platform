@@ -86,3 +86,43 @@ Scoping controls:
 Example:
   A room booking app cannot access HR data unless permission is provided.
   For learning scoped application development → Application Development Fundamentals is recommended.
+
+  -------------------------------------------------------------------------------------------------------
+
+✅ Question 1: What is a set of installed applications on a ServiceNow instance before any configuration or customization?
+
+Answer:
+👉 Baseline implementation
+This is the default set of applications that come with a fresh ServiceNow instance.
+
+
+
+✅ Question 2: How do you activate applications and application features?
+
+Answer:
+You can activate apps or features through:
+
+Plugins
+
+ServiceNow Store
+
+Requesting activation from ServiceNow
+
+
+
+✅ Question 3: What is a copy of a ServiceNow environment that is specific to a customer?
+
+Answer:
+👉 An instance
+Each customer gets their own instance with separate data and configurations.
+
+
+
+✅ Question 4: How can you explore or test an application before purchasing it?
+
+Answer:
+You can:
+
+Use a Personal Developer Instance (PDI)
+
+Use a Non-production instance for testing
