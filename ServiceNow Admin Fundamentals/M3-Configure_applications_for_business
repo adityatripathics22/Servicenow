@@ -1,0 +1,186 @@
+Topic: Lists, Forms, Views, Filters, Dot-Walking & List Configuration
+
+
+2. Lists & Filters – Basics
+
+Lists
+  A list shows records from a table.
+  Each row = a record
+  Each column = a field
+  Lists exist in core platform and workspace.
+
+Filters
+  Help you narrow down the list to only the records you need.
+  All users can:
+    Apply filters
+    Create filters
+    Modify filters
+    Save filters
+
+
+
+3. Views
+
+Views allow the same list or form to be displayed differently for different users.
+
+Examples of views:
+  Employee
+  Self-service
+  Mobile
+  Workspace
+  Admin
+
+To change view:
+  Open list control menu
+  Select View
+  Choose a view (name appears in brackets unless it is default)
+
+
+
+4. List Context Menus
+
+Different menus give control over lists:
+
+    1. List Context Menu
+    Accessed by clicking the menu next to list title.
+    Allows:
+        Filtering
+        Sorting
+        Viewing the entire list
+
+    2. Column Options Menu
+
+    Open by clicking the three-dots icon on a columns
+    Allows:
+        Create reports
+        Export data
+        Sort, group, calculate
+
+    3. List Fields Context Menu
+
+    Right-click a cell:
+        Tagging
+        Filtering
+        Field-level options
+
+
+5. List Collector
+
+  Lets you choose fields and their order while customizing lists.
+  A plus (+) icon indicates a related table.
+
+
+6. Dot-Walking
+
+Dot-walking = accessing data in related tables using reference fields.
+
+Used commonly in:
+  Form builder
+  Form layout
+  List views
+  Platform analytics
+  Workflow Studio
+
+Useful for showing information from other tables.
+
+
+7. Adding Fields to a List
+
+To add new fields:
+  Use column menu → Configure List Layout
+  Add fields in the Add New Field section
+  Save to update list layout
+
+Who can do this?
+  Admins
+  Users with personalize_list role
+
+They can:
+  Add/remove/rearrange columns
+
+
+8. List Editing
+
+Users can edit list data directly if allowed.
+
+Important notes:
+  Some fields cannot be edited
+  Some tables have list editing disabled by default
+  If a row cannot be edited → a message will show
+  List Editor allows:
+    Contiguous editing
+    Non-contiguous editing
+    Fast updates to multiple records
+
+
+9. Personalize List Layout vs System List Layout
+  Personalize List Layout
+    Affects only the current user
+    Used for temporary change
+    Does not affect global settings
+
+  You can:
+    Add columns
+    Remove columns
+    Rearrange columns
+    Reset to default view
+
+  If an admin updates the system view, personalized views won’t show new default columns unless reset.
+
+  System List Layout
+    Visible to everyone
+    Used for permanent changes
+    Admin-configured
+
+
+10. Tags
+
+Users can:
+  Add personal tags
+  View tagged records
+  Workspace: filled tag icon = tags assigned
+
+
+11. Adding Lists to Application Menu
+
+You can add your custom list to the application menu:
+  Helps users quickly find the lists they use
+  Use filter navigator to find application menus
+
+
+12. Locating Application on the List
+
+Example: “Self-Service”
+  Select the title to open record
+  View modules under the application
+  Add new modules if needed
+
+
+13. Lists in Workspaces
+
+Lists help:
+  Filter records
+  Show issues like incidents, cases
+  Group records
+
+Admins use lists to track tasks and manage workflows.
+
+
+14. Creating List Categories
+
+To create list categories:
+  Apply filters
+  Save them
+  Make categories appear in explorer/workspace
+
+Useful for organizing data without heavy configuration.
+
+
+15. Column Actions
+
+Using icons, you can:
+  Drag-and-drop columns
+  Group rows by column value
+  Filter data
+  Quickly sort
+  Change column width
