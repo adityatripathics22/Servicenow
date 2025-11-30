@@ -184,3 +184,32 @@ Using icons, you can:
   Filter data
   Quickly sort
   Change column width
+
+
+  ---------------------------------------------------------------------------------------------------------
+
+
+Topic: Form Configuration, Fields, Form Builder, Templates, Dot-Walking
+
+
+1. What Are Forms in ServiceNow?
+
+Forms display a single record from a table.
+Each record contains fields, and forms show those fields in a structured layout.
+
+Why forms matter:
+  Users view or edit important data
+  Each user may need different data depending on their role
+
+  Example:
+    Major Incident Manager → sees Major Incident tab
+    HR Payroll Specialist → sees salary data not visible to others
+
+
+2. How ServiceNow Organizes Data
+
+  Uses a database structure
+  Tables store data (e.g., User, Incident, HR Case)
+  Records = each row
+  Fields = data inside the record (e.g., Department, Email)
+  Depending on roles, users see different information
