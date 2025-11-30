@@ -1,6 +1,7 @@
 Topic: Lists, Forms, Views, Filters, Dot-Walking & List Configuration
 
 
+
 2. Lists & Filters – Basics
 
 Lists
@@ -37,6 +38,7 @@ To change view:
 
 
 
+
 4. List Context Menus
 
 Different menus give control over lists:
@@ -64,10 +66,12 @@ Different menus give control over lists:
         Field-level options
 
 
+
 5. List Collector
 
   Lets you choose fields and their order while customizing lists.
   A plus (+) icon indicates a related table.
+
 
 
 6. Dot-Walking
@@ -82,6 +86,7 @@ Used commonly in:
   Workflow Studio
 
 Useful for showing information from other tables.
+
 
 
 7. Adding Fields to a List
@@ -99,6 +104,7 @@ They can:
   Add/remove/rearrange columns
 
 
+
 8. List Editing
 
 Users can edit list data directly if allowed.
@@ -111,6 +117,7 @@ Important notes:
     Contiguous editing
     Non-contiguous editing
     Fast updates to multiple records
+
 
 
 9. Personalize List Layout vs System List Layout
@@ -133,12 +140,14 @@ Important notes:
     Admin-configured
 
 
+
 10. Tags
 
 Users can:
   Add personal tags
   View tagged records
   Workspace: filled tag icon = tags assigned
+
 
 
 11. Adding Lists to Application Menu
@@ -148,12 +157,14 @@ You can add your custom list to the application menu:
   Use filter navigator to find application menus
 
 
+
 12. Locating Application on the List
 
 Example: “Self-Service”
   Select the title to open record
   View modules under the application
   Add new modules if needed
+
 
 
 13. Lists in Workspaces
@@ -166,6 +177,7 @@ Lists help:
 Admins use lists to track tasks and manage workflows.
 
 
+
 14. Creating List Categories
 
 To create list categories:
@@ -174,6 +186,7 @@ To create list categories:
   Make categories appear in explorer/workspace
 
 Useful for organizing data without heavy configuration.
+
 
 
 15. Column Actions
@@ -192,6 +205,7 @@ Using icons, you can:
 Topic: Form Configuration, Fields, Form Builder, Templates, Dot-Walking
 
 
+
 1. What Are Forms in ServiceNow?
 
 Forms display a single record from a table.
@@ -206,6 +220,7 @@ Why forms matter:
     HR Payroll Specialist → sees salary data not visible to others
 
 
+
 2. How ServiceNow Organizes Data
 
   Uses a database structure
@@ -213,3 +228,209 @@ Why forms matter:
   Records = each row
   Fields = data inside the record (e.g., Department, Email)
   Depending on roles, users see different information
+
+
+
+3. Form Elements
+
+Forms include:
+  Fields
+  Sections
+  Formatters
+  Related Lists
+  UI Actions
+  Activity Stream
+  Tabs
+
+These help users navigate and interact with records efficiently.
+
+
+
+4. Field Types
+
+ServiceNow supports 30+ field types, for example:
+  Reference
+  Date & Time
+  String
+  Choice
+  True/False
+
+When creating a new record:
+  Make sure you’re using the correct view
+  Some fields must be filled before saving
+  Changing views may require saving/discarding changes
+
+
+
+5. Ways to Modify a Form
+
+Three main tools:
+
+1. Form Builder
+2. Form Design
+3. Form Layout
+
+⚠ Avoid adding the same editable field in multiple form sections
+This can break UI Policies or Data Policies.
+
+
+
+6. Form Builder (Main Tool for Admins)
+  Form Builder allows you to:
+    Add fields
+    Move fields
+    Delete fields
+    Add related lists
+    Select layouts
+    Apply rules
+
+  Admins can also configure:
+    UI Policies
+    Access Control Rules
+    Client Scripts
+    Business Rules
+    Workspace View Rules
+
+You can configure field attributes through the Configuration Panel.
+
+
+
+7. Dot-Walking on Forms
+
+Dot-walking lets you display data from a related table.
+
+Steps:
+  Click Add Related Field
+  Select field from reference table
+  Add to form
+  Save → field appears on form
+
+
+
+8. Adding New Fields to Tables
+
+Steps:
+  Go to System Definition → Tables
+  Select table
+  Add new field under Columns tab
+  Return to form and place field using Form Builder
+  
+
+
+9. Formatters
+
+Examples of built-in formatters:
+  Activity formatter
+  Parent breadcrumbs
+  Approval summarizer
+  CI Relations
+  Process flow formatter
+T hese add functionality to the form.
+
+
+
+10. Related Lists on Forms
+
+Using the List Collector, you can:
+  Add related lists
+  Remove related lists
+  Reorder related lists
+  Ensure the correct form view is selected.
+
+
+
+11. Personalizing a Form (User-Specific)
+
+To personalize:
+  Open a record
+  Click Personalize Form icon
+  Hide/show fields (only non-mandatory fields)
+  Reset hidden fields if needed
+
+Personalized layout persists for that user only.
+
+ 
+
+12. Form Templates
+
+Templates help users fill common fields automatically.
+
+Features:
+  Show a check mark if updated
+
+  Can be created for:
+    Incident
+    Change
+    HR Case
+    Any table
+
+  No limit to number of templates
+
+  But too many templates become difficult to manage
+
+⚠ Only certain groups should create templates
+→ to avoid bypassing mandatory fields, UI policies, workflows
+
+Admins can:
+
+  Set scripts to automatically apply templates
+  Make templates available to groups/users
+
+
+
+13. Templates in Workspace
+
+Workspace forms use a different layout:
+  Form is in Details tab
+  Fields in Details Panel
+  Activity Stream in a separate panel
+
+To share a workspace template:
+  Use magnifying glass
+  Choose groups
+  Save template
+
+⚠ Deleted templates cannot be recovered.
+
+
+
+14. Creating a Custom Form Template
+
+Steps:
+  Go to Templates Pane
+  Click Plus (+)
+  Name the template
+  Add/remove fields
+  Save
+
+In your lab, you only need to add a new field to a form.
+
+
+-------------------------------------------------------------------------------------------------------
+
+Topic: Advanced Configuration – Choice Lists & Reference Fields
+
+
+1. Why Advanced Configuration Matters
+
+As an administrator, you must configure:
+  Choice fields
+  Reference fields
+
+These fields help teams maintain accurate, high-quality data when recording issues or incidents.
+
+
+2. Choice Lists vs Reference Lists
+Choice Lists
+  Marked by a dropdown arrow
+  Options are stored on the same table (e.g., Incident categories)
+
+Reference Lists
+  Marked by a magnifying glass
+  Options come from a different table
+    Examples:
+      Service table
+      Configuration Item (CI) table
+      Service Offering table
+
+Reference fields are more powerful because they allow relationships between tables.
