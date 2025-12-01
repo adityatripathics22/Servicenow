@@ -1,0 +1,181 @@
+Topic: Manage Data – Tables, Records, Fields, Relationships, and Schema Map
+
+
+
+1. Introduction
+
+This module explains how ServiceNow organizes and manages data.
+All information on the platform is stored using:
+  Tables
+  Records
+  Fields
+  Values
+
+You will learn how tables relate to one another, how records are structured, and how schema maps help visualize data relationships.
+
+
+
+2. Tables
+
+Tables store records.
+  Applications use tables to handle data and business processes (like Incident, CMDB, HR Case).
+  Tables can extend other tables, forming parent-child relationships.
+  The Tables & Columns module shows table structure, fields, and indexes.
+  Dictionary entries hold table field definitions and properties.
+
+Base Table
+  A table that has no parent.
+  Serves as the foundation for other tables.
+
+Example:
+  Task table is a base table.
+  Incident, Problem, Change, etc. extend from it.
+
+Child Table
+  Inherits fields and properties from its parent table.
+  Can also have its own unique fields.
+
+Tables can be:
+  Only a parent
+  Only a child
+  Both parent and child (depending on relationship)
+
+
+
+3. Records
+  A record is one row in a table.
+  Each record has a unique 32-character sys_id.
+  Record numbers can auto-increment.
+  Formatting of record numbers can be changed in the Number Maintenance table.
+
+
+
+4. Fields
+  Fields hold individual pieces of data.
+  Common examples include First Name, Last Name, Location, Category.
+  Field labels and field names may differ:
+    Field Label = what the user sees
+    Field Name = unique system value stored in the database
+
+Field values may also be empty depending on the business need.
+
+
+
+5. Reference Fields
+  Store the sys_id of a record from another table.
+  Create a link between two tables.
+  Allow data from the referenced table to be displayed.
+  Only connect to a single table.
+  Support wildcard searches.
+  Example: The Caller field on the Incident table references the User table.
+
+To reference a record from any table, the Document ID element is used.
+
+
+
+6. Relationship Types
+
+One-to-Many
+
+A record on one table references a single record on another table.
+Example: Caller on Incident links to a User table record.
+
+GlideList
+
+Allows selecting multiple records from another table.
+Example: Watch List on Incident can include many users.
+
+Document ID Field
+
+Allows selecting records from any table in the system.
+
+Many-to-Many
+
+Used when multiple records from two tables need to be linked.
+Example: Students and Classes
+  A student can have many classes
+  A class can have many students
+
+
+
+7. Database Views
+  Join tables together to create a read-only virtual table.
+  Useful for reporting across multiple tables.
+  Example: joining Incident with Metric tables.
+
+
+
+8. Table Extensions
+
+Tables can be:
+  Brand new, or
+  Created by extending an existing table.
+
+When extending a table:
+  Child inherits all fields and properties from parent.
+  You can add unique fields on the child table.
+  UI policies, mandatory indicators, and business rules are also inherited.
+
+Example parent tables:
+  Task
+  Configuration Item
+
+Child tables created from Task include:
+  Change Request
+  Incident
+  Problem
+  Request
+
+Incident inherits fields like:
+  Number
+  Location
+
+and then adds its own:
+  Caller
+  Category
+
+
+9. Base vs Core Tables
+  Base table: no parent, acts as starting point.
+  Core tables: built-in ServiceNow tables.
+  Custom tables: created by admins, can link to core tables through reference fields.
+
+Custom tables are not part of the base system but can still interact with it.
+
+
+
+10. Scoped vs Global Applications
+  Scoped apps have restricted reach and API access to prevent platform damage.
+  Global apps have full access and are the default scope.
+  Scoped apps serve as a sandbox for safety and isolation.
+
+
+11. Schema Map
+
+The Schema Map shows:
+  Table structure
+  Parent and child relationships
+  Fields and where they originate
+  Extended and inherited properties
+  Tables referenced by the current table
+
+How to access:
+  Open System Definition → Tables
+  Select a table
+  Click Show Schema Map under Related Links
+
+In the example shown, Task is at the center, with tables like Problem and Change extending from it.
+
+Schema Map shows:
+  Which tables inherit fields
+  Which fields are inherited
+  Which tables are referenced
+
+Tables marked with red bars are referenced tables.
+
+
+
+12. Using Schema Map for Analysis
+  Helps identify where fields originate
+  Shows which fields are inherited or custom
+  Filters can hide or show tables based on their relationship tree
