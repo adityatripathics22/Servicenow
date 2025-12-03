@@ -1,0 +1,139 @@
+Topic: Search Options, Wildcards, Condition Builder, Breadcrumbs
+
+Overview
+Explained different ways to search data in ServiceNow, usage of wildcard search conditions, how to build advanced filters using condition builder, saving filters, and how breadcrumbs work to manage applied conditions.
+Demonstrated using the Incident table.
+
+Previous Video Recap
+– What is a Record
+– List View vs Form View
+– How to create an Incident record
+
+Search Options in ServiceNow
+
+Global Search
+• Available on the ServiceNow home screen
+• Works similar to Google search
+• Returns matching data under various categories like People, Knowledge, Catalog Items
+• Example: Search “mobile” → shows related results across the platform
+
+Table Level Search (Incident List Search)
+• Appears near the table name (Incident)
+• Can search records using fields such as:
+
+Number
+
+Opened date
+
+Short Description
+
+Caller
+
+Priority
+
+State
+• Example: Copy incident number → paste in search → shows direct match
+
+Filter Panel Search
+• Available inside the filter/condition builder
+• Used for structured filtering of records by selecting fields and operators
+
+Cell Based Search
+• Search directly under column cells
+• Usually used for applying wildcard search conditions
+
+Wildcard Search Conditions
+
+Contains
+*term
+Example: *network
+Result: Records where Short Description contains “network”
+
+Does Not Contain
+!*term
+Example: !*network
+Result: Records where Short Description does not contain “network”
+
+Exact Match
+=term
+Example: =new (State field)
+Result: Only records having exact state “New”
+
+Not Equal
+!=term
+Example: !=new
+Result: All records where state is not “New”
+
+Starts With
+term%
+Example: network%
+Result: Records where description starts with “network”
+
+Ends With
+%term
+Result: Records where text ends with that term
+
+Condition Builder (Filter Section)
+
+Allows structured multi-condition filtering.
+
+Steps
+• Open Incident list: incident.list
+• Enable Filter panel
+• Select field → select operator → provide value → Run
+
+Examples
+
+State = Closed
+Shows all closed incidents
+
+State is one of Closed, In Progress
+Shows incidents matching any of the selected states
+
+State is one of Closed, In Progress
+AND Priority = High
+Shows high priority incidents that are closed or in progress
+
+State is one of Closed, In Progress
+AND Priority = High
+AND Created on Last Year
+Shows records created last year with the above conditions
+
+State is one of Closed, In Progress
+AND Priority = High
+AND Created on Last Year
+OR Created on This Year
+Shows matching records from both last year and current year
+
+Saving Filters
+
+• After building a filter, click Save
+• Provide a name (e.g. Daily Report)
+• Choose visibility: Only Me / Group / Everyone
+• Load filters through List Controls → Filter
+
+Breadcrumbs
+
+Shows active filter conditions in a readable format.
+
+Example
+All > State is Closed or In Progress > Priority = 2 > Created On Last Year OR This Year
+
+Breadcrumb Features
+• View entire applied filter condition
+• Click arrows (>) to remove the next condition section
+• Click All to return to full incident list
+• Right-click breadcrumb to copy query URL or filter script
+
+Example Usage
+– Remove last applied condition
+– Quickly reset search
+– Copy query for documentation or scripts
+
+Key Points
+
+• Multiple search areas exist in ServiceNow
+• Wildcards help to quickly narrow down records
+• Condition Builder supports complex filtering
+• Filters can be saved and reused
+• Breadcrumbs allow easy filter navigation and removal

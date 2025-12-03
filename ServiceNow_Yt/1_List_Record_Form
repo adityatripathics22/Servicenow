@@ -8,25 +8,6 @@ This video explains the basic building blocks of ServiceNow:
 – How to navigate to Incident records
 – How to create a new Incident record using the developer instance
 
-Previous Video Recap
-In the last video we learned:
-– What are ServiceNow releases
-– How ServiceNow release cycles work
-– Where to find detailed information about releases
-– How to get your own ServiceNow Developer Instance
-(very important, as all practice in this series uses that instance)
-
-What We Learn in This Video
-– What is a Record
-– What is List View
-– What is Form View
-– Comparison of List View vs Form View
-– Demo of Record, List View and Form View in the Incident table
-– Shortcuts to open list and form
-– Creating a new Incident record
-
-
-
 
 
 What is a Record
