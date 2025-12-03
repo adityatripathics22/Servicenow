@@ -178,4 +178,4 @@ Tables marked with red bars are referenced tables.
 12. Using Schema Map for Analysis
   Helps identify where fields originate
   Shows which fields are inherited or custom
-  Filters can hide or show tables based on their relationship tree
+  Filters can hide or show tables based on their relationship tree.
