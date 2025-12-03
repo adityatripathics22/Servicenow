@@ -1,0 +1,275 @@
+Topic: Menus in ServiceNow – List, Column, Field, Form, Related Lists
+
+Overview
+This video explains different context menus available in ServiceNow and how they help you work faster on lists and forms.
+All demos are shown on the Incident table in a ServiceNow developer instance.
+
+What We Learned in the Last Video
+– Concept of Filter and Search in ServiceNow
+– Different places where search is available (global search, list search, filter area, column search)
+– Wildcard search conditions (contains, does not contain, equals, etc.)
+– How to create filters using Condition Builder
+– How breadcrumbs work and how to use them to quickly modify filters
+
+What We Are Going to Learn in This Video
+All topics are shown through demo:
+– List control menu
+– Column options menu
+– List field menu
+– Form controls menu
+– Form field menu
+– Related list menu
+
+LIST CONTROL MENU
+
+Where:
+– On top of the list view (Incident list), usually as a menu icon called “List control” or similar.
+
+Options in List Control Menu:
+
+View
+– Changes the view (layout) of the list.
+– Default view: shows standard columns.
+– Example views:
+• Mobile view – fewer fields, optimized for mobile.
+• Portal view – different arrangement of fields, e.g., Category, Number, Short Description.
+– Use different views for different purposes but most of the time you will use the default view.
+
+Filter
+– Opens the filter/condition builder (same as discussed in previous video).
+– Also shows saved filters.
+– Example:
+• “Daily report” filter created in last video can be selected here.
+• Predefined filters like “Active” can be applied directly (e.g., Active = true).
+
+Group By
+– Groups list records based on a field.
+– Example: Group by Category
+• List is split into sections: Hardware, Network, Software, etc.
+• Shows how many incidents are in each category, e.g., Hardware (11).
+• Clicking the group header shows records under that group.
+– You can group by any field in the Incident table (like Category, State, Assignment group, etc.).
+
+Show (Rows per page)
+– Controls how many records are shown on each page.
+– Options like 10, 20, 50 rows per page.
+– Example:
+• Select 50 → first page shows 50 records, next page shows remaining records.
+
+Refresh List
+– Reloads the list data (like a refresh button).
+
+Create Favorite
+– Saves the current list (with its URL/view) as a favorite.
+– You can give a name (e.g., “Incident report”), icon, and color.
+– After saving, it appears under Favorites in the left navigation.
+– Clicking the favorite opens the same list/view directly.
+
+COLUMN OPTION MENU
+
+Where:
+– On each column header in the list (e.g., Number, Priority, State).
+– Hover over the column name and click the small icon to open the column options.
+
+Key Options in Column Option Menu:
+
+Sorting
+– Sort A to Z or Z to A (ascending/descending).
+– Example: Sort Priority A to Z → Priority 1 comes first, then 2, 3, 4, 5.
+– Sort Z to A → Priority 5 comes first.
+
+Group By (from column)
+– Same as Group By in List control, but applied from a specific field.
+– Example:
+• Click on State column → Group by State.
+• To remove grouping, use “Ungroup”.
+
+Bar Chart / Pie Chart
+– Quickly generates a report based on the current list and selected column.
+– Clicking Bar Chart opens a report view showing counts (e.g., count of incidents per State).
+– Pie Chart works similarly but with a pie visualization.
+– Internally uses the Report module; can be saved or customized later.
+
+Launch Interactive Analysis
+– Opens an interactive analysis view.
+– Shows visual breakdown like:
+• How many tickets are In Progress
+• How many are High priority
+• How many are Closed, etc.
+– Allows adding filters and changing Group By (e.g., group by Assignment Group instead of State).
+
+Configure
+– Options like:
+• List layout
+• Business rules
+• UI policies
+• Data policies
+• UI actions
+– These are configuration/customization options and are covered in other videos (admin/developer level).
+
+Import / Export
+– Import records into the table.
+– Export list data in formats like:
+• Excel
+• CSV
+• XML
+• JSON
+• PDF
+
+Update Options (when rows are selected)
+– Update selected: update only selected records.
+– Update all: update all records matching the current filter.
+– Requires you to select rows first.
+
+Show XML
+– Shows how the record is stored as XML.
+– Mainly for understanding or technical/debug purposes.
+
+LIST FIELD MENU (List Row/Cell Options)
+
+Where:
+– On individual cells in the list (e.g., Priority, Category of a specific record).
+– Right-click on a cell value to open this menu.
+
+Important Options:
+
+Show Matching
+– Very useful shortcut.
+– Example: Right-click on a record where Priority = 5 → Show matching
+• The list is filtered to show only records with Priority = 5.
+• A filter is automatically applied: Priority is 5.
+– Example: Right-click on Category = Network → Show matching
+• Shows only incidents where Category = Network.
+
+Filter Out
+– Opposite of Show matching.
+– Example: Right-click on Priority = 5 → Filter out
+• The list shows records where Priority is NOT 5.
+• Filter applied: Priority is not 5 (shows 1, 2, 3, 4 only).
+
+Copy URL to Clipboard
+– Copies the record URL.
+– You can paste it and share or store it.
+
+Copy Sys ID
+– Copies the unique sys_id of the record.
+– Used mostly for integration, scripting, and admin tasks.
+
+Assign Tag / Archive / Assign to Me
+– Assign tag: add a tag/label for your own organization.
+– Archive: archive the record (if allowed).
+– Assign to me: quickly set the “Assigned to” field to the current user (e.g., System Administrator).
+
+Follow on Live Feed / Show Live Feed / Add to Visual Task Board
+– Additional collaboration and visualization options (covered deeper in other videos).
+
+FORM CONTROL MENU
+
+Where:
+– On a record’s form view (top-left main menu on the form).
+
+Key Options:
+
+Save
+– Saves the current record without exiting the form.
+
+Visual Task Board
+– Open record in visual task board context (covered in separate video).
+
+Copy Incident
+– Creates a new incident by copying the current incident.
+– Short Description, Description, and other fields are duplicated.
+– Useful when you want a similar incident created based on an existing one.
+
+Create Related Records
+– Options like:
+• Create Problem
+• Create Request
+• Create Change (Normal, Standard, etc.)
+– These are shortcuts to create related records linked to this incident.
+
+Configure
+– Similar to list configure:
+• Form layout
+• Business rules
+• UI policies
+• etc.
+– Covered in customization/admin videos.
+
+Export and View Options
+– Export the record in different formats.
+– View in other representations if configured.
+
+Favorite / Copy URL / Copy Sys ID / Show XML / History
+– Mark this record as favorite.
+– Copy URL of the record.
+– Copy sys_id.
+– Show XML representation.
+– View record history (changes).
+
+Reload Form
+– Reloads the form (refresh for the single record).
+
+FORM FIELD MENU
+
+Where:
+– On individual fields inside the form view (e.g., Number, Impact, Priority).
+– Right-click on a field label (not the value) to see field-level options.
+
+Common Options:
+
+Configure Dictionary
+– Opens dictionary entry for the field.
+– Shows:
+• Table name
+• Column name
+• Data type (e.g., string, integer)
+• Label (what is displayed on the form)
+– Changing dictionary affects how fields behave across the application.
+– Covered in detail in separate dictionary/config videos.
+
+Configure Styles, etc.
+– Other options like styles and field properties.
+– Used to control look and behavior of fields.
+
+Show Impact (or similar info)
+– Shows technical details:
+• Table name
+• Field name
+• Field type (e.g., integer, string)
+– Helpful for admins/developers to understand underlying structure.
+
+RELATED LIST MENU
+
+Where:
+– At the top right of each related list at the bottom of the form (e.g., related tasks, related incidents).
+– Usually a small icon/menu on the related list header.
+
+Options:
+
+– Filter: apply filter on the related list records.
+– Refresh: reload the related list data.
+– Other options depending on configuration (similar idea to list control but for that specific related list).
+
+KEY POINTS TO REMEMBER
+
+– List Control Menu:
+• Change view, apply saved filters, group by, control rows per page, refresh, and create favorites.
+
+– Column Option Menu:
+• Sort, group by, create quick bar/pie chart, launch interactive analysis, configure list, import/export, show XML.
+
+– List Field Menu:
+• Show matching and Filter out are very powerful for quick filtering.
+• Copy URL, copy sys_id, assign to me are common shortcuts.
+
+– Form Control Menu:
+• Save, copy incident, create related records (problem, request, change), configure, export, history, reload.
+
+– Form Field Menu:
+• Configure dictionary and show impact give deeper info about fields (table, column, type).
+
+– Related List Menu:
+• Filter and refresh for related lists under the main form.
+
+All these menus are meant to speed up navigation, analysis, and configuration inside ServiceNow without needing to write code.
