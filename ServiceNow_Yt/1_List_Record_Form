@@ -1,0 +1,183 @@
+Topic: Record, List View, Form View, Shortcuts, Creating a Record
+
+Overview
+This video explains the basic building blocks of ServiceNow:
+– What a Record is
+– What List View and Form View are
+– Differences between List View and Form View
+– How to navigate to Incident records
+– How to create a new Incident record using the developer instance
+
+Previous Video Recap
+In the last video we learned:
+– What are ServiceNow releases
+– How ServiceNow release cycles work
+– Where to find detailed information about releases
+– How to get your own ServiceNow Developer Instance
+(very important, as all practice in this series uses that instance)
+
+What We Learn in This Video
+– What is a Record
+– What is List View
+– What is Form View
+– Comparison of List View vs Form View
+– Demo of Record, List View and Form View in the Incident table
+– Shortcuts to open list and form
+– Creating a new Incident record
+
+
+
+
+
+What is a Record
+
+– Simple definition:
+A record = a row in a spreadsheet or table.
+
+– Spreadsheet example:
+Columns (fields) = First Name, Last Name, Company, Email
+Rows (records) = actual data, for example:
+Row 1: Pritam, Ganguly, ServiceNow, email-id
+Row 2: Rahul, Bose, ServiceNow, email-id
+
+– In ServiceNow:
+– Data is stored in tables (e.g., User table, Incident table)
+– Each row in the table is a record
+– Each column is a field (First Name, Last Name, Company, Email, etc.)
+
+
+– Data storage:
+– All records are stored in the ServiceNow database in ServiceNow data centers
+– When you search or filter, ServiceNow retrieves records from the database and shows them on screen
+– You do not need to write SQL queries; ServiceNow provides powerful filters and UI to work with records
+
+
+– Sys ID (sys_id):
+– Every record has a unique key called sys_id (also known as GUID)
+– 32-character unique identifier for each record in a table
+– Used internally and in development (scripts, integrations, etc.)
+– Automatically generated; you do not have to create or remember it
+– Detailed use of sys_id is typically covered in developer-focused topics
+
+
+What is List View
+
+– List View = a view where multiple records are shown in a grid/table format.
+
+Characteristics:
+– Shows multiple records per page (rows)
+– Columns represent fields like:
+Number, Opened, Short Description, Caller, Priority, State, etc.
+– Example: In the Incident list, you might see 67 incidents spread across pages
+– You can move to next/previous pages to see more records
+
+Fields in List View:
+– Only a limited set of fields are shown to keep the list readable
+– Not all fields of a record are visible in list view
+
+Actions in List View:
+– You can perform filtering and sorting
+– Filter icon opens the filter panel
+– Filtering is very powerful and is covered more deeply in the next video
+– You cannot fully edit all record details directly like in the Form View
+
+What is Form View
+
+– Form View = detailed view of a single record.
+
+Characteristics:
+– One record per page
+– Shows more fields and more details than list view
+– When you click a record from the list view, it opens in form view
+
+In Form View you can:
+– See detailed information about that one record
+– Edit fields (depending on permissions)
+– Modify and update the record
+– Work with more controls specific to that record
+
+Comparison with List View:
+– List View:
+– Multiple records
+– Limited fields
+– Good for overview, searching, sorting, filtering
+
+– Form View:
+– Single record
+– Many fields
+– Good for detailed viewing and editing
+
+Demo Summary – Record, List View and Form View
+
+– Logged into the ServiceNow Developer instance
+– Opened the Application Navigator (All)
+– Searched for “Incident” in the navigator
+– Clicked on “All” under Incident to open the Incident List
+
+Incident List View:
+– Shows multiple incident records
+– Records provided by ServiceNow are demo/sample records for practice
+– These are not real production records
+
+From List View to Form View:
+– Click any incident number in the list
+– That incident opens in Form View
+– In Form View you see many more fields and details about that incident
+
+
+Shortcuts – Navigating to List and Form
+
+Shortcut to open List View of a table:
+– Type in the navigation filter or URL:
+table_name.list
+
+Example:
+– incident.list
+Opens the Incident table list view directly
+
+Shortcut to open Form View (new record) of a table:
+– Type:
+table_name.do
+
+Example:
+– incident.do
+Opens a new Incident form view (blank form to create a new record)
+
+These shortcuts work similarly for other tables like change, problem, etc.
+
+
+
+Creating a Record (Incident Example)
+
+Steps (high level):
+
+Open a new Incident form (for example using incident.do).
+
+Fill in the key fields like:
+– Short Description (e.g. “Demo testing”)
+– Other required fields (depending on configuration)
+
+Click Submit.
+
+After Submit:
+– You are redirected back to the Incident List View.
+– The newly created record appears as a new row in the list.
+– If you click that row/number, you see its details again in Form View.
+
+This demonstrates:
+– Form View is used to create and edit a single record.
+– List View is used to see the record among many others.
+
+
+
+Key Points to Remember
+
+– Record = a single row of data with multiple fields (columns).
+– Every record has a unique 32-character sys_id.
+– List View shows multiple records with limited fields; allows sorting and filtering.
+– Form View shows one record in detail with more fields and full edit capability.
+– You can move from List View to Form View by clicking a record.
+– Shortcuts:
+– incident.list → Incident list view
+– incident.do → New Incident form view
+– ServiceNow Developer instance comes with demo data for practice.
