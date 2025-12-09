@@ -1,0 +1,140 @@
+✅ Create a Flow – ServiceNow (Yokohama)
+📘 Module Notes
+1. What is Flow Designer?
+
+Flow Designer is a no-code/low-code automation tool in ServiceNow used to:
+
+Automate business processes
+
+Trigger actions based on events
+
+Connect multiple applications
+
+Replace legacy workflows
+
+It uses:
+
+Triggers → start the flow
+
+Actions → perform tasks
+
+Data Pills → pass data between steps
+
+2. Key Components of a Flow
+🔹 Trigger
+
+Defines when the flow starts
+Examples:
+
+Record created
+
+Record updated
+
+Scheduled time
+
+Service Catalog submission
+
+🔹 Actions
+
+Tasks performed after trigger
+Examples:
+
+Create Record
+
+Send Email
+
+Update Record
+
+Create Task
+
+Wait for condition
+
+🔹 Data Pills
+
+Reusable data objects passed between steps
+Used to:
+
+Fill form fields
+
+Set conditions
+
+Share values between actions
+
+3. Steps to Create a Flow
+
+Open Flow Designer
+
+Click New → Flow
+
+Enter:
+
+Flow Name
+
+Description
+
+Application scope
+
+Add a Trigger
+
+Add one or more Actions
+
+Use Data Pills where required
+
+Click Save
+
+Click Activate
+
+4. Example Flow (Basic Use Case)
+
+Use Case:
+When a new Incident is created → Send an Email to the assigned user
+
+Steps:
+
+Trigger → Record Created (Incident table)
+
+Action → Send Email
+
+Email recipient → Assigned to (Data Pill)
+
+Email body → Incident details
+
+Save and Activate
+
+5. Testing a Flow
+
+Create or update a record based on the trigger
+
+Check:
+
+Email delivery
+
+Record updates
+
+Task creation
+
+Use Execution Details for debugging
+
+6. Benefits of Flow Designer
+
+✅ No coding required
+
+✅ Faster automation
+
+✅ Easy debugging
+
+✅ Scalable workflows
+
+✅ Works across ServiceNow apps
+
+7. Skill Gained in This Module
+
+Creating flows
+
+Using triggers & actions
+
+Using Data Pills
+
+Activating & testing flows
+
+Basic automation design
