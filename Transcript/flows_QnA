@@ -1,0 +1,239 @@
+================================================================================
+SERVICE NOW FLOW DESIGNER & WORKFLOW STUDIO – Q&A NOTES
+(Full Answer Text + Explanations – Console Aligned)
+================================================================================
+
+Q1. Why is a Decision Table an effective choice for changing product eligibility rules in a Flow?
+Answer:
+It allows quick updates to logic without modifying application code.
+Explanation:
+Decision Tables separate logic from code, making updates fast and safe.
+--------------------------------------------------------------------------------
+
+Q2. How does Workflow Studio simplify working with multiple workflow object types?
+Answer:
+It allows users to edit related workflow objects simultaneously in one interface.
+Explanation:
+Workflow Studio provides a unified workspace for all workflow components.
+--------------------------------------------------------------------------------
+
+Q3. What is the function of inputs on an Action?
+Answer:
+They pass data into the Action.
+Explanation:
+Inputs supply required values so the Action can perform its task.
+--------------------------------------------------------------------------------
+
+Q4. What should a Process Analyst do to avoid repeatedly assembling the same group of actions?
+Answer:
+Create a Subflow that can be called from other Subflows or Flows.
+Explanation:
+Subflows allow reusable logic.
+--------------------------------------------------------------------------------
+
+Q5. When would a developer use Do the Following Until instead of For Each?
+Answer:
+The actions must repeat until a specific condition becomes true.
+Explanation:
+“Do Until” loops run until a condition is met, not per item.
+--------------------------------------------------------------------------------
+
+Q6. How does a user update a published Decision Table?
+Answer:
+The user enables the draft authoring feature to edit the published Decision Table.
+Explanation:
+Updates require creating a draft and republishing.
+--------------------------------------------------------------------------------
+
+Q7. How do Flows streamline automated processes?
+Answer:
+They centralize automation logic for enterprise-wide process orchestration.
+Explanation:
+Flows coordinate actions and logic, reducing complexity.
+--------------------------------------------------------------------------------
+
+Q8. Which configuration allows a Subflow to receive data and return results?
+Answer:
+Inputs and Outputs.
+Explanation:
+Inputs bring data in; Outputs return data back to the Flow.
+--------------------------------------------------------------------------------
+
+Q9. How do Flow Execution Details support debugging?
+Answer:
+They show success, failure, and skipped steps for each action in the Flow.
+Explanation:
+Execution details provide real-time troubleshooting visibility.
+--------------------------------------------------------------------------------
+
+Q11. How do Decision Tables simplify Flow automation?
+Answer:
+They replace lengthy if/else statements.
+Explanation:
+Decision Tables organize conditions in a structured rule format.
+--------------------------------------------------------------------------------
+
+Q12. How does a Decision Table add value to a Flow?
+Answer:
+It simplifies complex If Flow Logic.
+Explanation:
+Complex branching becomes easy to manage in a table.
+--------------------------------------------------------------------------------
+
+Q13. Which action makes a Decision Table available?
+Answer:
+Publish the Decision Table.
+Explanation:
+Publishing activates it for use in Flows.
+--------------------------------------------------------------------------------
+
+Q14. Which configuration data is required when building a custom Action?
+Answer:
+Action Properties, Inputs, Action Steps, Outputs, and Error Handling.
+Explanation:
+These define behavior and data flow inside a custom Action.
+--------------------------------------------------------------------------------
+
+Q15. What is the role of the Operations page in Flow monitoring?
+Answer:
+It displays execution details for completed and in-progress automations.
+Explanation:
+Operations lets users troubleshoot running or finished Flows.
+--------------------------------------------------------------------------------
+
+Q16. What is a characteristic of a Subflow?
+Answer:
+It starts when triggered by another automation.
+Explanation:
+Subflows cannot run independently; they are always invoked.
+--------------------------------------------------------------------------------
+
+Q18. What are the required elements for building a custom action?
+Answer:
+Inputs, Outputs, and Steps.
+Explanation:
+These define what data flows in/out and what logic runs.
+--------------------------------------------------------------------------------
+
+Q19. How can you prevent Flows on the same table from overwriting each other?
+Answer:
+Create unique trigger conditions for each Flow.
+Explanation:
+Distinct triggers avoid conflicts and duplicate execution.
+--------------------------------------------------------------------------------
+
+Q20. What is one function of Flow Logic?
+Answer:
+It applies conditions to include or bypass specific Actions.
+Explanation:
+Flow Logic controls branching and conditional execution.
+--------------------------------------------------------------------------------
+
+Q21. How can Subflows streamline login-failure tracking?
+Answer:
+Use a specific Subflow to centralize login tracking logic across Flows.
+Explanation:
+Centralizing removes duplication and ensures consistency.
+--------------------------------------------------------------------------------
+
+Q22. Which feature helps developers decouple decision logic from code?
+Answer:
+Decision Builder.
+Explanation:
+Decision Tables externalize logic outside scripts or hard-coded flows.
+--------------------------------------------------------------------------------
+
+Q23. Which feature visualizes how steps in a Flow are connected?
+Answer:
+Diagramming view.
+Explanation:
+It visually maps the flow path and structure.
+--------------------------------------------------------------------------------
+
+Q24. What does a Trigger define in a Flow?
+Answer:
+It specifies when the Flow begins and the starting data available to it.
+Explanation:
+Triggers define start events and initial context.
+--------------------------------------------------------------------------------
+
+Q25. How does a user create a reusable start condition for a Flow?
+Answer:
+Set up a trigger within Workflow Studio.
+Explanation:
+Triggers define reusable starting logic.
+--------------------------------------------------------------------------------
+
+Q26. Which feature ensures a required input must be provided to a Subflow?
+Answer:
+Mandatory toggle.
+Explanation:
+Mandatory inputs must be filled before a Subflow executes.
+--------------------------------------------------------------------------------
+
+Q27. A Subflow has Outputs but no values assigned. How to fix?
+Answer:
+Use Flow Logic to assign values to the Outputs.
+Explanation:
+Outputs must be explicitly set or nothing is returned.
+--------------------------------------------------------------------------------
+
+Q28. How can a user simplify and maintain a Flow more efficiently?
+Answer:
+Store complex and reused processes in a Subflow.
+Explanation:
+Reusability reduces maintenance and duplication.
+--------------------------------------------------------------------------------
+
+Q29. Which feature outputs error information from a custom Action?
+Answer:
+Error Evaluation.
+Explanation:
+Error Evaluation sends structured error details to the calling Flow.
+--------------------------------------------------------------------------------
+
+Q30. How does Workflow Studio’s homepage facilitate efficient navigation?
+Answer:
+It offers quick access to recent items.
+Explanation:
+Users can quickly resume work on recent Flows or Actions.
+--------------------------------------------------------------------------------
+
+Q31. How do Decision Tables simplify complex logic in Flows?
+Answer:
+They replace lengthy if/else conditions with structured decision rules.
+Explanation:
+Rule-based logic reduces complexity and improves maintainability.
+--------------------------------------------------------------------------------
+
+Q32. What is the function of Skip Iteration Flow Logic?
+Answer:
+It bypasses the current loop iteration based on a condition.
+Explanation:
+It moves to the next record without executing remaining steps.
+--------------------------------------------------------------------------------
+
+Q33. How does Workflow Studio organize different workflow object types?
+Answer:
+It displays each workflow object type in its own tab.
+Explanation:
+Tabs separate Flows, Actions, Subflows, and Decision Tables clearly.
+--------------------------------------------------------------------------------
+
+Q34. What is the role of an Action?
+Answer:
+It facilitates the reusability of an operation across multiple Flows.
+Explanation:
+Actions encapsulate repeatable tasks.
+--------------------------------------------------------------------------------
+
+Q35. What role does Flow Logic play in determining the execution path?
+Answer:
+It evaluates conditions to decide which actions to execute or skip.
+Explanation:
+Flow Logic controls branching and decision-making.
+--------------------------------------------------------------------------------
+
+================================================================================
+END OF NOTES
+================================================================================
