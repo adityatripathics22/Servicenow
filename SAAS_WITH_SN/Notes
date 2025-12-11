@@ -29,12 +29,72 @@ SERVICE NOW — SYSTEM ADMIN (ORLANDO) — EXAM NOTES (CONSOLE FORMAT)
    - Backups: 4 weekly full backups + 6 days of daily differential backups.
      * Backups used for restore and cloning lower environments.
 
+
+NOTE:->
+
+MULTI-INSTANCE:
+- Each customer gets their own separate, independent instance
+- Completely isolated environment with separate database and servers
+- Higher cost but greater customization flexibility
+- One customer's data is completely isolated from others
+- Example: Company A has Instance 1, Company B has Instance 2
+
+MULTI-TENANT:
+- Single instance serves multiple customers
+- Data is logically separated using tenant IDs or row-level security
+- Lower cost due to shared resources
+- All customers share same application and infrastructure
+- Easier to deploy updates (everyone gets them simultaneously)
+
 --------------------------------------------------------------------------------
 3) SECURITY & AUTHENTICATION
-   - Supports: Local DB (username/password), SSO (SAML 2.0 e.g., Okta), LDAP, OAuth 2.0
+   - Supports: Local DB (username/password), SSO (single sign on) (SAML 2.0 e.g., Okta), LDAP, OAuth 2.0
      (client_id + secret), Digest Token, Multi-Factor (e.g., Google Authenticator).
    - Role-based access controls (RBAC) — grants access to apps/fields.
    - Elevation of roles (temporary elevation e.g., security_admin).
+
+
+NOTE:->
+
+1) LOCAL DB (USERNAME/PASSWORD):
+   - Username and password stored in ServiceNow database
+   - Simplest method, no external systems needed
+   - Risk: passwords exposed if instance compromised
+
+2) SSO - SAML 2.0 (e.g., Okta):
+   - User logs in via external identity provider (Okta, Azure AD, etc.)
+   - ServiceNow trusts the provider's verification
+   - No password shared with ServiceNow
+   - Best for: enterprise with multiple apps
+
+3) LDAP:
+   - Authenticates against company's Active Directory
+   - ServiceNow queries LDAP to validate credentials
+   - Syncs with on-premise directory
+   - Best for: organizations with Active Directory
+
+4) OAUTH 2.0 (CLIENT_ID + SECRET):
+   - Third-party apps request access to ServiceNow
+   - Client_id identifies the app; client_secret is app's password
+   - Tokens granted instead of passwords
+   - Best for: API integrations, third-party access
+
+5) DIGEST TOKEN:
+   - HTTP authentication for API calls
+   - Password sent as hashed digest (not plain text)
+   - Safer than basic auth; used for REST integrations
+
+6) MULTI-FACTOR AUTHENTICATION (MFA) (e.g., Google Authenticator):
+   - Adds second security layer
+   - User enters password + code from authenticator app
+   - Can combine with any auth method (SSO + MFA, LDAP + MFA, etc.)
+   - Best for: high-security environments
+
+QUICK RULE:
+- Internal users = Local DB or LDAP
+- Enterprise = SSO (SAML)
+- API access = OAuth or Digest Token
+- Extra security = Add MFA on top
 
 --------------------------------------------------------------------------------
 4) PLATFORMS / INTERFACES
@@ -46,6 +106,16 @@ SERVICE NOW — SYSTEM ADMIN (ORLANDO) — EXAM NOTES (CONSOLE FORMAT)
    - Service Portal URL: add "sp" after domain to access portal.
    - Mobile apps downloadable from iOS/Android stores; configurable by admins.
 
+
+--------------------------------------------------------------------------------
+--> UI EVOLUTION (important update)
+   - Historically UI15 and UI16 were common toggleable UI versions. Since then,
+     ServiceNow introduced the "Now/Next Experience" and workspace concepts (e.g.,
+     Service Operations Workspace) and ongoing UI improvements across releases.
+   - UI16 still exists in many instances, but **the recommended UI or experience may
+     change with releases** — admins should follow release notes and the Now Experience
+     guidance because elements (edge, layout, widgets) may evolve. :contentReference[oaicite:14]{index=14}
+
 --------------------------------------------------------------------------------
 5) ROLE-BASED ACCESS (components & best practices)
    - Components:
@@ -54,7 +124,7 @@ SERVICE NOW — SYSTEM ADMIN (ORLANDO) — EXAM NOTES (CONSOLE FORMAT)
      * Role   = collection of permissions
    - Best practice: assign roles to GROUPS (not to individual users).
      * Easier maintenance: adding/removing users from group changes permissions.
-   - Base (out-of-the-box) roles: admin, itil, approver_user, catalog_admin, etc.
+   - Base (out-of-the-box) roles: admin, itil(provide read and write access to itsm applications like incident change), approver_user, catalog_admin, etc.
    - Self-service users: can log in with no roles; limited actions (raise incident, view catalog).
    - Impersonate: admins can impersonate other users to view their UI/permissions.
 
