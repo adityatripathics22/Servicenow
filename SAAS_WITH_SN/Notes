@@ -15,19 +15,25 @@ SERVICE NOW — SYSTEM ADMIN (ORLANDO) — EXAM NOTES (CONSOLE FORMAT)
 
 --------------------------------------------------------------------------------
 2) PLATFORM OVERVIEW & ARCHITECTURE
-   - ServiceNow: American company; product = ServiceNow Platform (PaaS / aPaaS).
-   - Use cases: IT, HR, Finance, Security — automate manual & repeatable processes.
-   - Not just ticketing — an automation platform.
+   • ServiceNow is an aPaaS platform used across IT, HR, Finance, Security, etc.
+• Helps automate manual, repeatable workflows.
+• Not just a ticketing tool — a full enterprise workflow platform.
 
-   ARCHITECTURE:
-   - Single data model, flexible table schema, reusable components.
-   - Multi-instance architecture (ServiceNow) vs multi-tenant (many cloud providers).
-     * Multi-tenant: customers' data co-mingled -> potential availability/risk.
-     * Multi-instance: each org has isolated instance (unique software stack). Instances
-       can communicate but are isolated.
-   - High availability: traffic rerouting to redundant servers on outage.
-   - Backups: 4 weekly full backups + 6 days of daily differential backups.
-     * Backups used for restore and cloning lower environments.
+ARCHITECTURE
+• ServiceNow uses a **multi-instance architecture**:
+  - Each customer gets its own application stack + DB.
+  - No co-mingling of data with other customers.
+  - Higher isolation, better control over updates & performance.
+
+• Backups:
+  - ServiceNow performs **weekly full backups** and **daily differential backups**.
+  - Retention windows depend on customer subscription; exact # of stored backups
+    is not fixed (no longer “4 weekly + 6 daily”).
+  - Backups are used for restoration & cloning.
+
+• High availability:
+  - Redundant data centers.
+  - Traffic failover during outages.
 
 
 NOTE:->
@@ -48,10 +54,26 @@ MULTI-TENANT:
 
 --------------------------------------------------------------------------------
 3) SECURITY & AUTHENTICATION
-   - Supports: Local DB (username/password), SSO (single sign on) (SAML 2.0 e.g., Okta), LDAP, OAuth 2.0
-     (client_id + secret), Digest Token, Multi-Factor (e.g., Google Authenticator).
-   - Role-based access controls (RBAC) — grants access to apps/fields.
-   - Elevation of roles (temporary elevation e.g., security_admin).
+   SUPPORTED AUTH METHODS
+• Local Database (username/password stored in User table)
+• SAML 2.0 SSO (Okta, Azure AD, etc.)
+• LDAP integration
+• OAuth 2.0 (commonly used for API & Mobile authentication)
+• Digest Token (legacy; rarely used now)
+• Multi-Factor Authentication (MFA):
+  - TOTP (Google Authenticator, Microsoft Authenticator)
+  - **FIDO2 / WebAuthn Passkeys (2024+)**
+  - Email/SMS (depending on org policies)
+
+ROLE-BASED ACCESS
+• User → Group → Role hierarchy.
+• Best practice: Assign roles to **groups**, not users.
+• Base roles: admin, itil, approver_user, catalog_admin.
+• Self-service users (no roles) can:
+  - Submit requests/incidents
+  - Access portal & catalog
+
+• Impersonation: Admins can view system as another user.
 
 
 NOTE:->
@@ -97,14 +119,41 @@ QUICK RULE:
 - Extra security = Add MFA on top
 
 --------------------------------------------------------------------------------
-4) PLATFORMS / INTERFACES
-   - Three ways to interact with same system of record:
-     1. Native UI (desktop browser)
-     2. Mobile Apps (Now Mobile, Agent, Onboarding)
-     3. Service Portal (SP - advanced self-service UI)
-   - Supported browsers: Chrome, Edge, Firefox, Safari.
-   - Service Portal URL: add "sp" after domain to access portal.
-   - Mobile apps downloadable from iOS/Android stores; configurable by admins.
+4) USER INTERFACES (2025 UPDATE)
+
+ServiceNow now has **three major UX experiences**:
+
+1. **Next Experience (Unified Navigation)** — NEW DEFAULT UI  
+   - Introduced in San Diego release.  
+   - Replaces legacy UI16 as primary UI.  
+   - Provides workspaces, modern navigation, improved theming.
+
+2. **Workspaces (Next Experience Workspaces)**
+   - Agent Workspace
+   - CSM Workspace
+   - ITSM Workspace / Service Operations Workspace (2023–2025)
+
+3. **Service Portal**
+   - Modern self-service UI for end users.  
+   - Still widely used.
+
+⚠ Legacy UI update:
+• UI15 is obsolete.  
+• UI16 exists but is **not the recommended long-term UI**.  
+• Many organizations migrate to **Next Experience**.
+
+SUPPORTED BROWSERS
+• Chrome, Edge, Firefox, Safari (latest versions recommended).
+
+MOBILE APPS
+-----------------------------------
+• Now Mobile — for employees to submit requests, tasks, approvals.
+• Mobile Agent — for fulfillers handling incidents/requests on the go.
+• Mobile Onboarding — for HR onboarding processes.
+
+2025 Update:
+• All mobile apps now use the **ServiceNow Mobile Platform**, with enhanced
+  offline support and deep-linking features.
 
 
 --------------------------------------------------------------------------------
@@ -150,74 +199,84 @@ QUICK RULE:
 --------------------------------------------------------------------------------
 7) BRANDING (UI16 config / welcome page)
    - Change via: "UI16 Configuration" (System Properties -> Basic Configuration UI16).
+   - Next Experience → Theme and Brand Center (newer configuration model).
    - Can update: instance name, banner image, color theme, date/time format.
    - Welcome page content configurable (short description, links, login messages).
 
 --------------------------------------------------------------------------------
 8) LISTS & FILTERS (concepts + operations)
    - List = records from a table (e.g., incident list).
-   - List elements:
-     * Title bar, Filters, Breadcrumbs (shows applied conditions), Columns/Fields.
-   - List title menu: view, filters, group by, show (rows per page), refresh, create favorite.
-   - List context menu (right/left click on title bar): sort, visual task board, charts, export, import, update selected.
-   - List control (settings): set roles for New/Edit/Filter, edit behavior, max rows (show: 10,15,20,50,100).
-   - Filters:
-     * Build conditions (field / operator / value), Run to apply.
-     * Breadcrumbs show applied filters; can remove or modify.
-     * Save filters -> name + visibility (Me / Everyone / Group).
-   - Views:
-     * Create different views (default, mobile, major incident, etc.) to show different columns/fields.
-   - Group By:
-     * Group list by a column (e.g., state, priority) — quick aggregation.
-   - Update Selected / Update All:
-     * Bulk update fields on selected/all records on screen.
-   - Export options: Excel, CSV, XML, JSON, PDF.
-   - XML view: shows full record fields (not only visible columns).
-   - Search:
-     * Top search (across selected fields).
-     * Inline search under column (can be enabled/disabled). Search adds to filter condition.
-   - Personalization:
-     * Users can personalize columns via Settings -> "Personalize list columns".
-   - Templates & Scheduled Templates:
-     * Template = pre-fill set of field values for frequent record creation.
-     * Toggle Template Bar on form; apply template to auto-populate fields.
-     * Schedule templates to create records on schedule.
+   LIST ELEMENTS
+• Title bar, columns, filters, breadcrumbs.
+• List menu operations:
+  - Create Favorite
+  - View (different views)
+  - Group By
+  - Show (rows per page)
+  - Refresh
+
+• Context menu options:
+  - Sort
+  - Bar / Pie chart
+  - Export (CSV, Excel, PDF, JSON, XML)
+  - Import
+  - Update Selected / Update All
+
+FILTERS
+• Built using conditions (field / operator / value).
+• “Run” applies filter.
+• Breadcrumbs show active filters.
+• Save filters with visibility settings (Me / Group / Everyone).
+
+VIEWS
+• Different column layouts for different use cases (Default, Mobile, Major Incident).
+
+SEARCH
+• Inline search (per-column)
+• Global list search (fields included depend on view)
+• Search converts into filter conditions
+
+TEMPLATES
+• Predefined field values for quickly creating records.
+• Scheduled templates can auto-create records on a schedule.
 
 --------------------------------------------------------------------------------
 9) FORMS (concepts & config)
    - Form = single record display from a table.
-   - Form elements:
-     * Content frame, Form title (buttons), Form menu, UI Actions (buttons like Save, Submit), Sections, Related Lists (bottom).
-   - Create vs Save vs Submit:
-     * Submit: save & close the form (redirect back).
-     * Save: save but keep form open.
-   - Field types:
-     * Mandatory (red asterisk) — required to save/submit.
-     * Read-only — non-editable fields on the form.
-     * Choice fields (drop-downs).
-     * Reference fields — refer to records in other tables (caller -> user table, assignment group, etc.)
-   - Activity Stream:
-     * Work notes / Additional comments -> posted and captured in activity stream (audit trail).
-   - Sections:
-     * Group related fields (resolution info, related records, notes).
-   - Related Lists:
-     * Show related records from other tables (task SLAs, security incidents, etc.)
-   - Views:
-     * Default + custom views (e.g., major incident view shows extra fields).
-   - Form Configuration methods:
-     1. Form Layout: classic; pick available fields -> selected fields; create simple fields.
-     2. Form Design: advanced drag-and-drop designer; create fields, set mandatory/read-only inline.
-     - Configure Related Lists via Configure -> Related Lists.
-   - After changes: reload form to reflect layout/design changes.
+   FORM ELEMENTS
+• Form title, UI actions, form menu
+• Sections (grouped fields)
+• Related Lists (bottom)
 
+SAVE VS SUBMIT
+• Save → Save data, stay on form
+• Submit → Save and close
+
+FIELD TYPES
+• Mandatory fields (red asterisk)
+• Read-only fields
+• Reference fields (link to another table)
+• Choice fields (drop-down)
+• Calculated/derived fields (e.g., Priority from Impact + Urgency)
+
+ACTIVITY STREAM
+• Work notes & comments tracked as timeline.
+
+FORM CONFIGURATION
+1. **Form Layout** — add fields, rearrange, create simple fields.
+2. **Form Design** — drag-and-drop designer; create fields; set mandatory/read-only.
+3. **Related Lists** — configure related lists shown at bottom.
 --------------------------------------------------------------------------------
 10) INCIDENT MANAGEMENT (list/form examples)
-    - Common modules: Create New, Assigned to Me, All Open, All Incidents.
-    - Pre-built OOB filters in modules; modules may have conditions (e.g., active=true).
-    - Changing filter condition may change number of records displayed.
-    - Priority is derived from impact & urgency (cannot be set arbitrarily if business rule drives it).
-    - Use templates to standardize repetitive incident creation.
-    - Use copy incident button to duplicate & create new incident from existing record.
+    • OOB modules include:
+  - Create New
+  - Assigned to Me
+  - All Open
+  - All Incidents
+
+• Priority = function(Impact, Urgency) (business rules)
+• Templates used for common incident patterns.
+• Copy Incident button creates a new record from an existing one.
 
 --------------------------------------------------------------------------------
 11) FORM & LIST CONFIGURATION (admin/dev options)
@@ -227,7 +286,17 @@ QUICK RULE:
     - List Layout: add/remove columns, create fields, set default view.
 
 --------------------------------------------------------------------------------
-12) MISCELLANEOUS
+12) RELEASE MODEL (Important for admin exam)
+-----------------------------------
+• ServiceNow now releases **two major versions per year**.
+• UI behavior may shift in each release.
+• Admins MUST check release notes:
+  - UI features (Next Experience updates)
+  - Deprecated features (UI15, some legacy components)
+  - Updated security/authentication options
+  - Workspace improvements
+--------------------------------------------------------------------------------
+13) MISCELLANEOUS
     - Impersonation: used to verify end-user views.
     - Personal Developer Instance: demo instance provided by ServiceNow for practice.
     - Edge element: visible only in UI15.
@@ -236,7 +305,7 @@ QUICK RULE:
     - Favorites: create for quick access; can add icon/color.
 
 --------------------------------------------------------------------------------
-13) KNOWLEDGE CHECK (selected Q&A from transcript)
+14) KNOWLEDGE CHECK (selected Q&A from transcript)
     Q1: Apps visible to user with NO roles?    => Self-service
     Q2: Edge visible in UI15 or UI16?          => UI15
     Q3: Primary way to access platform data?   => Native UI (platform native UI)
@@ -249,7 +318,7 @@ QUICK RULE:
     Q10: Two ways to configure forms?          => Form Layout, Form Design
 
 --------------------------------------------------------------------------------
-14) EXAM TIPS (quick)
+15) EXAM TIPS (quick)
     - Understand differences: Multi-instance vs Multi-tenant.
     - Remember RBAC hierarchy: User -> Group -> Role (assign roles to groups).
     - Know Save vs Submit behavior on forms.
