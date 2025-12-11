@@ -1,0 +1,255 @@
+================================================================================
+SERVICENOW TASK MANAGEMENT — EXAM NOTES (UPDATED FOR 2025)
+================================================================================
+
+1) WHAT IS A TASK?
+------------------
+• A task is any record that can be assigned or completed by a user.
+• Examples: Incident, Problem, Change Request, Request Item (RITM), Catalog Task.
+• Users create tasks and get notifications as the task progresses.
+• Tasks can be assigned to:
+   - A user
+   - A group
+• Tasks track work progress and ensure accountability across teams.
+• Used across IT, HR, Facilities, Security, and other enterprise functions.
+
+--------------------------------------------------------------------------------
+2) TASK WORKFLOW EXAMPLE
+------------------------
+Scenario:
+• User raises an incident because their computer stops working.
+• Task is assigned to IT team → then routed to a specialist.
+• Specialist troubleshoots and resolves the issue.
+• Incident state changes to "Resolved".
+• User receives email notification of resolution.
+
+Purpose:
+• Shows how a task moves through assignment, work, resolution, and closure.
+
+--------------------------------------------------------------------------------
+3) TASK TABLE (CORE CONCEPT)
+----------------------------
+• **task** is one of ServiceNow’s core system tables.
+• Almost all work-related tables extend from task table.
+• Examples of tables that extend from task:
+   - incident
+   - problem
+   - change_request
+   - sc_request (Request)
+   - sc_req_item (RITM)
+   - sc_task (Catalog Task)
+   - change_task
+• When a table extends from *task*:
+   - It inherits task fields (e.g., assigned_to, assignment_group, priority, due_date).
+   - It can add its own custom fields.
+
+--------------------------------------------------------------------------------
+4) FIELDS INHERITED FROM TASK TABLE
+-----------------------------------
+Common inherited task fields:
+• Number
+• State
+• Assignment Group
+• Assigned To
+• Opened By, Opened At
+• Priority, Impact, Urgency
+• Short Description, Description
+• Activity Stream (work notes, comments)
+• SLA fields (via related list)
+
+Any extended table inherits these automatically.
+
+--------------------------------------------------------------------------------
+5) TASK FUNCTIONALITIES
+-----------------------
+A task may include:
+1. **Approvals**
+   - Can be manual or automated (via workflows, Flow Designer, Approval Rules).
+   - Approval types: Approve/Reject, Requested, Cancelled.
+
+2. **Assignments**
+   - Manual assignment.
+   - Automatic assignment via rules or predictive models.
+   - Assignment must respect access controls (user must have table access).
+
+3. **SLA (Service Level Agreements)**
+   - Tracks whether work is completed within agreed timelines.
+   - Example: P1 incident must be resolved within 1 hour.
+   - SLA is breached if resolution takes longer.
+   - Related list: Task SLA → shows active & completed SLAs.
+
+ServiceNow stores these in separate tables:
+• task_sla
+• sysapproval_approver
+• assignment rules tables
+
+--------------------------------------------------------------------------------
+6) TASK ASSIGNMENT (2025 APPROACH)
+----------------------------------
+Ways a task can be assigned:
+
+A) **Manual Assignment**
+   - User selects Assignment Group + Assigned To.
+   - Assigned To clears automatically if new group does not contain that user.
+   - User must have necessary roles (e.g., itil) to access task tables.
+
+B) **Assignment Rules**
+   - Found under: System Policy → Assignment
+   - Auto-assigns based on conditions (category, CI, urgency, etc.)
+   - Components:
+      • Applies To: table + condition
+      • Assigned To / Assignment Group
+      • Optional custom script section
+
+C) **Assignment Lookup Rules**
+   - Usually for Incident.
+   - Simple matching: Category + Subcategory (+ CI) → assignment group/user.
+
+D) **Predictive Intelligence (Machine Learning)**
+   - Uses ML to predict:
+       • Category
+       • Priority
+       • Assignment Group
+       • Assigned To
+   - Requires:
+       • Plugin activation (not default)
+       • Licensing
+       • Model training on historical data
+
+E) **Custom Scripting**
+   - Business rules, Flow Designer actions, Script Includes.
+   - Automates assignments with custom logic.
+
+--------------------------------------------------------------------------------
+7) SERVICE DESK APPLICATION
+---------------------------
+• A consolidated workspace for all types of tasks.
+• Modules include:
+   - Callers
+   - Incidents
+   - Knowledge
+   - My Work
+   - My Group’s Work
+   - My Approvals
+   - SLA (My Work SLA / My Groups SLA)
+
+Purpose:
+• Allows users and agents to see all tasks assigned to them or their group.
+• Works for ANY table extended from task.
+
+--------------------------------------------------------------------------------
+8) EFFECTIVE TASK WORK MANAGEMENT
+---------------------------------
+1. **Work Notes**
+   - Internal communication for agents.
+   - Not visible to requester.
+   - Used to log progress and troubleshooting steps.
+
+2. **Additional Comments**
+   - Visible to requester.
+   - Used to communicate status updates or request info.
+
+3. **Activity Stream**
+   - Shows entire history:
+       • Field changes
+       • Work notes
+       • Additional comments
+       • Emails sent/received
+       • SLA actions
+
+4. **Email Functionality**
+   - Agents can compose emails from the form.
+   - Emails appear in Activity Stream.
+   - Email sending requires user notifications enabled.
+
+--------------------------------------------------------------------------------
+9) NOTIFICATIONS (OUTBOUND + INBOUND)
+-------------------------------------
+ServiceNow supports:
+
+A) **Outbound Notifications**
+   - Sent when:
+       • Record is created/updated
+       • Event fires
+       • Flow triggers
+   - Recipients:
+       • Users
+       • Groups
+       • Fields on record (caller, assignment_group, assigned_to)
+   - Stored in table:
+       • sys_event_email_action
+
+B) **Inbound Actions**
+   - ServiceNow processes incoming emails.
+   - Can:
+       • Create records (e.g., new incident)
+       • Update records (using watermark)
+       • Run scripts
+   - Conditions based on email headers/body.
+   - Execution order determines which inbound action runs first.
+
+C) **Watermark**
+   - Unique ID embedded in outbound emails.
+   - Helps ServiceNow match inbound email replies to correct record.
+
+--------------------------------------------------------------------------------
+10) NOTIFICATION CONFIGURATION (KEY FIELDS)
+-------------------------------------------
+WHEN TO SEND:
+• Record Inserted
+• Record Updated
+• Event is fired
+• Flow Designer trigger
+
+WHO WILL RECEIVE:
+• Users
+• Groups
+• Fields referencing users/groups
+• Subscribable notifications (user-controlled)
+
+WHAT IT WILL CONTAIN:
+• Subject
+• Message Body (HTML or Plain Text)
+• Include Attachments
+• Email Template (optional)
+• Push Message Only (for mobile)
+• From / Reply-To Address
+• Importance (High/Low)
+
+PREVIEW:
+• Preview Notification button shows final email output.
+
+--------------------------------------------------------------------------------
+11) INBOUND ACTION CONFIGURATION
+--------------------------------
+Fields:
+• Name
+• Target Table
+• Type (New / Reply / Forward)
+• Action Type (Record Action / Reply)
+• Execution Order
+• Required Roles
+• Conditions (email body, subject, headers, sender)
+• Script (what action to perform)
+
+Use cases:
+• Creating incidents from emails.
+• Updating tasks using reply emails.
+• Auto-responding to users.
+
+--------------------------------------------------------------------------------
+12) SUMMARY OF KEY EXAM CONCEPTS
+--------------------------------
+• Task = core record for work; many tables extend from task.
+• Assignment requires group membership + table access.
+• SLA tracks time-based commitments.
+• Predictive Intelligence = ML-driven auto-classification & assignment.
+• Service Desk = central module for all tasks & SLAs.
+• Work Notes vs Additional Comments = internal vs customer-facing.
+• Notifications use conditions + recipients + templates.
+• Watermark enables email reply matching.
+• Inbound Actions automate task updates via email.
+
+================================================================================
+END OF NOTES
+================================================================================
