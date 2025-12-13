@@ -1,0 +1,129 @@
+🔥 Service Catalog
+
+✔ What is Service Catalog
+✔ Catalog Item vs Order Guide vs Record Producer
+✔ Variables vs Variable Sets
+✔ REQ → RITM → SCTASK relationship
+✔ Approval concept
+✔ Flow Designer preferred over Workflow
+
+
+================================================================================
+SERVICENOW SERVICE CATALOG — CSA 2025 NOTES
+================================================================================
+
+1) WHAT IS SERVICE CATALOG?
+---------------------------
+• Service Catalog is a self-service ordering system.
+• Users request services or products offered by departments.
+• Accessible under Self-Service (no roles required).
+
+Examples:
+• Laptop request
+• Software installation
+• Password reset
+• Access request
+
+--------------------------------------------------------------------------------
+2) BENEFITS OF SERVICE CATALOG
+------------------------------
+• One-stop shop for organizational services.
+• Easy categorization for users.
+• Requests are trackable end-to-end.
+• Supports multiple catalogs.
+
+--------------------------------------------------------------------------------
+3) CORE SERVICE CATALOG COMPONENTS
+----------------------------------
+A) Catalog Item
+   • Single service or product.
+   • Example: Laptop, Software install.
+
+B) Order Guide
+   • Bundle of multiple catalog items.
+   • Example: New employee onboarding.
+
+C) Record Producer
+   • Creates records in existing tables.
+   • Common tables:
+      - Incident
+      - Change
+      - Problem
+
+--------------------------------------------------------------------------------
+4) VARIABLES & VARIABLE SETS
+-----------------------------
+• Variables = fields/questions on catalog forms.
+• Variable Sets = reusable group of variables.
+
+Examples:
+• Requested For
+• Needed By
+
+--------------------------------------------------------------------------------
+5) SERVICE CATALOG ROLES (CSA LEVEL)
+------------------------------------
+• admin
+   - Full access.
+• catalog_admin
+   - Manage catalogs, categories, items.
+• catalog_manager
+   - Maintain catalog structure.
+• catalog_editor
+   - Edit catalog items and categories.
+
+--------------------------------------------------------------------------------
+6) REQUEST RECORD STRUCTURE (EXAM-CRITICAL)
+-------------------------------------------
+When a user submits a request:
+
+1. REQUEST
+   • Table: sc_request
+   • One per checkout.
+
+2. REQUEST ITEM (RITM)
+   • Table: sc_req_item
+   • One per catalog item.
+
+3. CATALOG TASK
+   • Table: sc_task
+   • Assigned to fulfillment teams.
+
+Relationship:
+• One REQUEST → many RITMs
+• One RITM → many Catalog Tasks
+
+--------------------------------------------------------------------------------
+7) REQUEST STAGES
+-----------------
+• Stages show progress to end users.
+• Examples:
+   - Waiting for Approval
+   - Fulfillment
+   - Completed
+• Stages are configurable.
+
+--------------------------------------------------------------------------------
+8) ORDER PROCESSING (CSA LEVEL)
+--------------------------------
+• Requests are processed using:
+   - Flow Designer (preferred)
+   - Workflow (legacy but supported)
+
+NOTE:
+• Only ONE process engine is used per catalog item.
+
+--------------------------------------------------------------------------------
+9) KEY CSA EXAM TAKEAWAYS
+-------------------------
+• Knowledge visibility = User Criteria.
+• Only published articles are visible to users.
+• Catalog creates REQ → RITM → SCTASK.
+• Variables define form input.
+• Order Guides bundle items.
+• Record Producers create existing records.
+• Flow Designer is preferred.
+
+================================================================================
+END OF SERVICE CATALOG — CSA 2025
+================================================================================
