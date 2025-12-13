@@ -1,0 +1,139 @@
+
+================================================================================
+SERVICENOW KNOWLEDGE MANAGEMENT — CSA 2025 NOTES
+================================================================================
+
+1) KNOWLEDGE MANAGEMENT OVERVIEW
+--------------------------------
+• Knowledge Management (KM) is the process of creating, managing, and sharing
+  knowledge articles.
+• Knowledge articles provide information, solutions, and guidance to users.
+• Articles are stored in Knowledge Bases (KBs).
+
+Knowledge Articles can be:
+• Policies
+• How-to guides
+• Self-help articles
+• Troubleshooting or resolution steps
+
+--------------------------------------------------------------------------------
+2) BENEFITS OF KNOWLEDGE MANAGEMENT
+-----------------------------------
+• One-stop solution for users to find answers.
+• Reduces incident volume through self-service.
+• Centralized and categorized knowledge repository.
+• Improves support efficiency and consistency.
+
+--------------------------------------------------------------------------------
+3) KNOWLEDGE BASE & CATEGORIES
+-------------------------------
+• Knowledge Base (KB) = container for articles.
+• Categories = logical grouping within a KB.
+• KBs can be created based on:
+   - Departments
+   - Business units
+   - Processes
+
+--------------------------------------------------------------------------------
+4) KNOWLEDGE ARTICLE STATES (VERY IMPORTANT)
+--------------------------------------------
+• Draft       → Article is being created.
+• Review      → Article is pending approval.
+• Published   → Article visible to end users.
+• Retired     → Article no longer visible.
+
+NOTE:
+• End users can ONLY see **Published** articles.
+• Knowledge team members can see all states.
+
+--------------------------------------------------------------------------------
+5) KNOWLEDGE VISIBILITY (EXAM-CRITICAL)
+---------------------------------------
+• Visibility is controlled using **User Criteria**.
+• User Criteria can be based on:
+   - Roles
+   - Groups
+   - Departments
+   - Locations
+   - Companies
+
+• Two access levels:
+   - Can Read
+   - Can Contribute
+
+--------------------------------------------------------------------------------
+6) KNOWLEDGE FEEDBACK
+---------------------
+Users can provide feedback using:
+• Star ratings (1–5)
+• Helpful? (Yes / No)
+• Comments
+• Flag article (with reason)
+
+• Feedback helps improve article quality.
+• Flagged or unhelpful articles can generate tasks.
+
+--------------------------------------------------------------------------------
+7) KNOWLEDGE ROLES (CSA LEVEL)
+-------------------------------
+• knowledge
+   - Create, edit, review articles.
+• knowledge_admin
+   - Manage knowledge bases and settings.
+• knowledge_manager
+   - Administer KBs and request new KBs.
+
+--------------------------------------------------------------------------------
+8) IMPORTING KNOWLEDGE ARTICLES
+--------------------------------
+• Supported formats:
+   - .doc
+   - .docx
+• Articles can be imported into a selected KB and category.
+
+================================================================================
+END OF KNOWLEDGE MANAGEMENT — CSA 2025
+================================================================================
+
+
+
+
+I have removed:
+
+Workflow editor details
+Execution plan internals
+UI navigation steps & demos
+Portal URL tricks
+Role hierarchy deep-dives
+Step-by-step import demos
+
+
+🔥 Knowledge Management
+
+✔ What is a Knowledge Article
+✔ Knowledge Base vs Category
+✔ Published vs Draft vs Retired
+✔ User Criteria (visibility control)
+✔ Feedback (ratings, helpful, flag)
+✔ Roles (knowledge, knowledge_admin)
+
+--------------------------------------------------------------------------------------------------
+✅ Still correct (no change)
+
+Knowledge Bases, Articles, Categories
+User Criteria for visibility
+Feedback (ratings, helpful/not helpful, comments, flags)
+Submissions
+Roles (knowledge, knowledge_admin, knowledge_manager)
+Service Catalog core concepts
+Catalog Items, Order Guides, Record Producers
+RITM, SCTASK, REQ tables
+Variables & Variable Sets
+Workflow vs Flow Designer (concept)
+
+⚠ Updated for 2025
+
+Workflow Editor → still exists but Flow Designer is preferred
+Execution Plans → still valid but less common
+Knowledge UI → Next Experience + Portal preferred
+Catalog processing → Flow Designer is default choice now
