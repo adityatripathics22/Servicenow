@@ -1,0 +1,170 @@
+================================================================================
+SERVICENOW TABLES & FIELDS — CSA 2025 NOTES
+================================================================================
+
+1) SERVICENOW DATA MODEL (FOUNDATION)
+-------------------------------------
+• ServiceNow stores data using a database structure.
+• Core components:
+   - Tables
+   - Records
+   - Fields
+
+Relationship:
+• Table  → collection of records
+• Record → single row in a table
+• Field  → column storing data for a record
+
+--------------------------------------------------------------------------------
+2) TABLES
+---------
+• A table stores records of similar type.
+• Each record represents one entry (row).
+• Tables are viewed using:
+   - List view (multiple records)
+   - Form view (single record)
+
+• Every table has a unique name (technical name).
+
+--------------------------------------------------------------------------------
+3) RECORDS
+----------
+• A record is one row in a table.
+• Each record is uniquely identified by:
+   - **sys_id** (32-character unique ID)
+• sys_id is system-generated and immutable.
+
+--------------------------------------------------------------------------------
+4) FIELDS
+---------
+• Fields are columns in a table.
+• Fields store actual data.
+
+COMMON FIELD TYPES:
+• String
+• Integer
+• Boolean (True/False)
+• Choice
+• Reference
+• Date / Date-Time
+
+FIELD ATTRIBUTES:
+• Field Label
+   - Display name shown to users.
+• Field Name
+   - Backend name used in scripting.
+• Field Value
+   - Actual data stored for the record.
+
+--------------------------------------------------------------------------------
+5) SYSTEM DEFINITION (ADMIN CONCEPT)
+------------------------------------
+• Tables and fields are managed under **System Definition**.
+• Important concepts:
+   - Tables
+   - Columns
+   - Dictionary entries
+
+• Dictionary defines:
+   - Field type
+   - Mandatory / Read-only
+   - Default value
+   - Reference behavior
+
+--------------------------------------------------------------------------------
+6) TABLE RELATIONSHIPS (VERY IMPORTANT)
+---------------------------------------
+ServiceNow supports three main relationships:
+
+A) ONE-TO-MANY
+• One record relates to many records in another table.
+• Implemented using **Reference fields**.
+
+Example:
+• User (sys_user) → Incident
+• One user can be the caller for many incidents.
+
+B) MANY-TO-MANY
+• Multiple records in one table relate to multiple records in another.
+• Implemented using a **Many-to-Many (M2M) table**.
+
+Example:
+• Groups ↔ Roles
+• Table: sys_group_has_role
+
+C) TABLE EXTENSION (INHERITANCE)
+• A table can extend another table.
+• Child table inherits all fields of parent table.
+
+Example:
+• task (parent table)
+• incident, change, problem (child tables)
+
+--------------------------------------------------------------------------------
+7) BASE TABLE vs EXTENDED TABLE
+-------------------------------
+• Base Table:
+   - Not extended from any other table.
+   - Can be extended by other tables.
+
+Example:
+• task
+• cmdb_ci
+
+• Extended Table:
+   - Extends another table.
+   - Inherits parent fields.
+
+Example:
+• incident extends task
+• problem extends task
+
+--------------------------------------------------------------------------------
+8) CORE TABLES vs CUSTOM TABLES
+-------------------------------
+• Core Tables:
+   - Provided Out-of-the-Box by ServiceNow.
+   - Used by standard applications.
+
+Examples:
+• incident
+• change_request
+• problem
+• task
+
+• Custom Tables:
+   - Created by admins or developers.
+   - Usually start with **u_** (in global scope).
+
+Example:
+• u_leave_request
+• u_training_tracker
+
+--------------------------------------------------------------------------------
+9) FIELD CREATION & CUSTOMIZATION (CSA LEVEL)
+---------------------------------------------
+• Admins can add custom fields to core or custom tables.
+• Custom fields are stored as dictionary entries.
+• Fields can be:
+   - Mandatory
+   - Read-only
+   - Visible / hidden
+
+NOTE:
+• Adding a field to a table makes it available for forms & lists.
+
+--------------------------------------------------------------------------------
+10) KEY CSA EXAM TAKEAWAYS
+--------------------------
+• Data in ServiceNow is stored in tables.
+• Tables contain records; records contain fields.
+• Every record has a unique sys_id.
+• Reference fields create relationships.
+• task is a base table.
+• incident, change, problem extend task.
+• Core tables = OOB, Custom tables = admin-created.
+• Dictionary controls field behavior.
+
+================================================================================
+END OF TABLES & FIELDS — CSA 2025
+================================================================================
