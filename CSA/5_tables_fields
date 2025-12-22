@@ -163,7 +163,7 @@ NOTE:
 • task is a base table.
 • incident, change, problem extend task.
 • Core tables = OOB, Custom tables = admin-created.
-• Dictionary controls field behavior.
+• Dictionary controls field behavior...
 
 ================================================================================
 END OF TABLES & FIELDS — CSA 2025
