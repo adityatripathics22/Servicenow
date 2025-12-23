@@ -1,0 +1,144 @@
+================================================================================
+SERVICENOW ACCESS CONTROL LIST (ACL) — CSA 2025 NOTES
+================================================================================
+
+1) WHAT IS ACL?
+---------------
+• ACL (Access Control List) is a security rule.
+• It controls who can access data in ServiceNow.
+• ACLs are the **highest level of data security** in ServiceNow.
+
+ACLs control access at:
+• Table level
+• Record (row) level
+• Field (column) level
+
+--------------------------------------------------------------------------------
+2) LEVELS OF SECURITY IN SERVICENOW
+-----------------------------------
+1. Login Security
+   • User must be authenticated.
+   • Controlled by user account status and roles.
+
+2. Application & Module Access
+   • Controlled by roles.
+   • Determines what applications/modules are visible.
+
+3. Data Access (ACL)
+   • Controls access to tables, records, and fields.
+   • Even if a user sees a module, ACLs decide what data is accessible.
+
+--------------------------------------------------------------------------------
+3) ACL OPERATIONS (EXAM-CRITICAL)
+---------------------------------
+STANDARD DATABASE OPERATIONS (CRUD):
+• Create
+• Read
+• Update
+• Delete
+
+SERVICENOW-SPECIFIC OPERATIONS:
+• Execute (run scripts)
+• Add CI Relationships
+• Save as Template
+• Report On
+• Personalize Choice
+
+--------------------------------------------------------------------------------
+4) TYPES OF ACL RULES (VERY IMPORTANT)
+--------------------------------------
+
+A) table.none
+• Applies to the entire table.
+• Controls access to records in the table.
+• If denied → user cannot see records at all.
+
+Example:
+• incident.none (Read)
+
+--------------------------------------
+
+B) table.*
+• Applies to **all fields** in the table.
+• User can see records but field access is evaluated.
+
+Example:
+• incident.* (Read)
+
+--------------------------------------
+
+C) table.field
+• Applies to a **specific field**.
+• Used to hide or restrict individual fields.
+
+Example:
+• incident.caller_id (Read)
+
+--------------------------------------------------------------------------------
+5) ACL EVALUATION LOGIC (HOW ACL WORKS)
+---------------------------------------
+When a user tries to access data:
+
+1. ServiceNow checks if an ACL exists.
+2. If NO ACL exists → access is GRANTED.
+3. If ACL exists → ACL is evaluated.
+4. If conditions pass → access is GRANTED.
+5. If conditions fail → access is DENIED.
+
+NOTE:
+• ACLs also apply to reports and APIs.
+• If data is restricted by ACL, it cannot be accessed via reporting.
+
+--------------------------------------------------------------------------------
+6) ACL CONDITIONS
+-----------------
+Access is granted if ALL conditions pass:
+
+• Required Roles
+• Conditions (filters)
+• Script (if used)
+
+If any condition fails → access denied.
+
+--------------------------------------------------------------------------------
+7) ADMIN OVERRIDE
+------------------
+• If enabled → Admin can bypass ACL.
+• If disabled → ACL applies even to admin users.
+
+--------------------------------------------------------------------------------
+8) ROLES REQUIRED FOR ACL MANAGEMENT
+------------------------------------
+• admin
+   - View ACLs
+• security_admin
+   - Create or modify ACLs
+   - Requires role elevation (session-based)
+
+--------------------------------------------------------------------------------
+9) DEFAULT ACL BEHAVIOR
+-----------------------
+• When a table is created with "Create Access Controls" enabled:
+   - System auto-creates 4 ACLs:
+     • Create
+     • Read
+     • Write
+     • Delete
+
+• If no ACL exists → data is accessible by default.
+
+--------------------------------------------------------------------------------
+10) KEY CSA EXAM TAKEAWAYS
+--------------------------
+• ACLs control data access, not UI visibility.
+• ACLs are evaluated before showing data.
+• No ACL = access allowed.
+• table.none → record access.
+• table.* → all fields.
+• table.field → specific field.
+• ACLs apply to forms, lists, reports, and APIs.
+• security_admin role is required to modify ACLs.
+
+================================================================================
+END OF ACL — CSA 2025
+================================================================================
