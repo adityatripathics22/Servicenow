@@ -1,0 +1,169 @@
+================================================================================
+SERVICENOW CMDB — CSA 2025 NOTES
+================================================================================
+
+1) WHAT IS CMDB?
+----------------
+• CMDB = Configuration Management Database.
+• A collection of tables that store:
+   - Configuration Items (CIs)
+   - Relationships between CIs
+
+• Used to understand infrastructure, services, and their dependencies.
+
+--------------------------------------------------------------------------------
+2) CONFIGURATION ITEM (CI)
+--------------------------
+• A CI is any component managed by IT.
+• Can be tangible or intangible.
+
+Examples:
+• Server
+• Application
+• Database instance
+• Laptop / Desktop
+• Business Service
+
+--------------------------------------------------------------------------------
+3) CMDB APPLICATION
+-------------------
+• ServiceNow provides an Out-of-the-Box CMDB application.
+• Used to manage:
+   - CI records
+   - CI classes
+   - CI relationships
+
+IMPORTANT CSA NOTE:
+• CMDB is managed using predefined tables and classes.
+
+--------------------------------------------------------------------------------
+4) CI RECORD (IMPORTANT FIELDS)
+--------------------------------
+A CI record contains details such as:
+• Name
+• Asset Tag
+• Manufacturer
+• Asset (linked from Asset table)
+• CI Class
+• Company
+• Serial Number / Model ID
+• Assigned To
+• Configuration attributes
+   - Host name
+   - OS
+   - IP address
+   - Domain
+
+--------------------------------------------------------------------------------
+5) RELATED ITEMS
+-----------------
+• Shows relationships with other CIs.
+• Helps identify dependencies between CIs.
+
+--------------------------------------------------------------------------------
+6) CI DASHBOARD VIEW
+--------------------
+• Provides health and quality metrics of a CI.
+• Shows:
+   - Completeness
+   - Correctness
+   - Compliance
+   - Staleness
+   - Related tasks (Incident, Change, Problem)
+
+NOTE:
+• Dashboard view is informational.
+
+--------------------------------------------------------------------------------
+7) KEY CMDB TABLES (EXAM-CRITICAL)
+----------------------------------
+1. cmdb_ci
+   - Base Configuration Item table.
+
+2. cmdb_ci_<class>
+   - Extended CI tables.
+   - Examples:
+     • cmdb_ci_server
+     • cmdb_ci_application
+     • cmdb_ci_computer
+
+3. cmdb_rel_ci
+   - Stores CI relationships.
+
+--------------------------------------------------------------------------------
+8) CMDB CLASS HIERARCHY
+-----------------------
+• CMDB uses table inheritance.
+• CI classes extend parent CI tables.
+• Organized hierarchically.
+
+Example:
+• cmdb_ci
+   → cmdb_ci_hardware
+      → cmdb_ci_computer
+   → cmdb_ci_application
+      → cmdb_ci_app_server
+
+--------------------------------------------------------------------------------
+9) CI CLASS MANAGER
+-------------------
+• Displays all CI classes in a hierarchical tree.
+• Used to:
+   - View
+   - Modify
+   - Extend CI classes
+
+--------------------------------------------------------------------------------
+10) CI RELATIONSHIPS
+--------------------
+• Define how CIs are connected.
+
+Common relationship types:
+• Depends on
+• Used by
+• Hosted on
+
+• Stored in **cmdb_rel_ci** table.
+
+--------------------------------------------------------------------------------
+11) CI DEPENDENCY VIEW (VERY IMPORTANT)
+---------------------------------------
+• Graphical view of CI relationships.
+• Shows:
+   - Upstream dependencies
+   - Downstream dependencies
+   - Impacted CIs
+
+Used for:
+• Impact analysis
+• Root cause analysis
+
+--------------------------------------------------------------------------------
+12) USAGE OF CMDB IN ITSM
+-------------------------
+• CIs are linked to:
+   - Incident
+   - Problem
+   - Change
+   - Request
+
+Benefits:
+• Faster issue resolution
+• Better impact analysis
+• Accurate reporting
+• Auto-assignment possibilities
+
+--------------------------------------------------------------------------------
+13) CSA EXAM TAKEAWAYS
+----------------------
+• CMDB stores CIs and their relationships.
+• CI can be hardware, software, or service.
+• cmdb_ci is the base CI table.
+• CI classes extend parent CI tables.
+• Relationships are stored in cmdb_rel_ci.
+• Dependency View shows CI impact graphically.
+• CMDB is heavily used in Incident, Problem, Change.
+
+================================================================================
+END OF CMDB — CSA 2025
+================================================================================
