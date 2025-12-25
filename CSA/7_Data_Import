@@ -1,0 +1,160 @@
+================================================================================
+SERVICENOW DATA IMPORT — CSA 2025 NOTES
+================================================================================
+
+1) WHY DATA IMPORT IS NEEDED
+----------------------------
+• Used to bulk load data into ServiceNow.
+• Avoids manual record creation.
+• Common use cases:
+   - Users & Groups (from Active Directory)
+   - HR employee data
+   - Knowledge articles
+   - Assets and CMDB data
+
+--------------------------------------------------------------------------------
+2) WAYS TO IMPORT DATA INTO SERVICENOW
+--------------------------------------
+
+A) IMPORT XML
+• Imports XML files only.
+• Mostly used to move data between ServiceNow instances.
+• Table is auto-detected from XML content.
+
+B) IMPORT (LIST CONTEXT MENU)
+• Used to import Excel files.
+• Uses Import Sets and Transform Maps internally.
+
+C) IMPORT SETS (CORE MECHANISM)
+• Primary and recommended way to import data.
+• Supports multiple data sources.
+• Uses staging tables and transform logic.
+
+--------------------------------------------------------------------------------
+3) ROLES REQUIRED
+-----------------
+• admin
+• import_admin
+
+--------------------------------------------------------------------------------
+4) IMPORT SET ARCHITECTURE (VERY IMPORTANT)
+-------------------------------------------
+Import process flow:
+
+Data Source
+   ↓
+Import Set Table (Staging Table)
+   ↓
+Transform Map
+   ↓
+Target Table
+
+--------------------------------------------------------------------------------
+5) IMPORT SET COMPONENTS
+------------------------
+
+A) DATA SOURCE
+• Defines where data comes from.
+• Examples:
+   - File (Excel / CSV)
+   - Attachment
+   - LDAP
+   - JDBC
+
+--------------------------------------
+
+B) IMPORT SET TABLE
+• Temporary staging table.
+• Stores raw imported data.
+• Table name is auto-generated.
+• Data is NOT directly inserted into target table.
+
+--------------------------------------
+
+C) TRANSFORM MAP
+• Maps source fields to target table fields.
+• Controls how data is inserted or updated.
+• Can be:
+   - Auto-mapped
+   - Manually mapped
+
+--------------------------------------
+
+D) TARGET TABLE
+• Final table where data is stored.
+• Example:
+   - incident
+   - sys_user
+   - custom tables
+
+--------------------------------------------------------------------------------
+6) COALESCE FIELDS (EXAM-CRITICAL)
+---------------------------------
+• Coalesce field determines **Insert vs Update** behavior.
+• If a matching record exists:
+   → Record is UPDATED.
+• If no match exists:
+   → New record is INSERTED.
+
+Common coalesce fields:
+• sys_id
+• number
+• email
+
+NOTE:
+• Without coalesce → records are always inserted.
+
+--------------------------------------------------------------------------------
+7) DATA POLICY (IMPORTANT)
+--------------------------
+• Enforces data rules at database level.
+• Applies to:
+   - UI
+   - Import Sets
+   - Web Services
+
+Common use cases:
+• Make fields mandatory.
+• Prevent invalid or incomplete data import.
+
+IMPORTANT:
+• "Apply to Import Sets" must be enabled.
+
+--------------------------------------------------------------------------------
+8) DIFFERENCE: UI POLICY vs DATA POLICY
+---------------------------------------
+• UI Policy:
+   - Applies only to UI.
+   - Does NOT affect imports.
+
+• Data Policy:
+   - Applies to UI + Import Sets + APIs.
+   - Blocks invalid data insertion.
+
+--------------------------------------------------------------------------------
+9) IMPORT RESULT TRACKING
+-------------------------
+• Each import creates a log record.
+• Shows:
+   - Inserted records
+   - Updated records
+   - Skipped records
+   - Errors
+
+Used for:
+• Monitoring
+• Troubleshooting failed imports
+
+--------------------------------------------------------------------------------
+10) KEY CSA EXAM TAKEAWAYS
+--------------------------
+• Import Sets are the core import mechanism.
+• Data flows via staging table before target table.
+• Transform Maps control field mapping.
+• Coalesce fields decide insert vs update.
+• Data Policies enforce mandatory rules during import.
+• UI Policies do NOT affect imports.
+
+================================================================================
+END OF DATA IMPORT — CSA 2025
+================================================================================
